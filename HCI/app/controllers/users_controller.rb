@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+  before_filter :checked_is_superuser, :except => [:new ,:index]
+
   def index
     @users = User.all
 
@@ -79,5 +81,12 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url }
       format.json { head :no_content }
     end
+  end
+
+  private 
+    def checked_is_superuser
+    authenticate_or_request_with_http_basic "Who is your father" do |user_name, password| 
+    user_name == "wy" && password == "wy" 
+    end     
   end
 end
