@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   before_filter :checked_is_superuser, :except => [:new ,:index]
-
   def index
     @users = User.all
 
@@ -12,6 +11,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def login
+    @user=User.new(params[:user])
+    if(@user.name==nil)
+      render :layout => false 
+    else
+      render :layout =>false
+    end
+  end
   # GET /users/1
   # GET /users/1.json
   def show

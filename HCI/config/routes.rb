@@ -1,6 +1,6 @@
 HCI::Application.routes.draw do
   resources :users
-
+  get 'login', to: 'users#login'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
