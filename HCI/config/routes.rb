@@ -1,8 +1,18 @@
 HCI::Application.routes.draw do
+#  resources :coments
+
+
+  resources :weibos
+
+
   root :to => 'users#login'
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :users do
+    resources :weibos
+  end
+
 
   get 'login', to: 'users#login'
   get '/user/forgetpwd', to: 'users#forgetpwd'

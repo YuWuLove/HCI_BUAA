@@ -86,10 +86,10 @@
 	<div class="panel panel-default"  style="float:right; margin-right:50px; width:60%;">
 	  <div class="panel-heading">据说你是新来的？</div>
 	  <div class="panel-body">
-	    <form class="form-signin" role="form">
-        <input type="name" class="form-control" placeholder="Your Name" required="" autofocus="">
-        <input type="email" class="form-control" placeholder="Email address" required="" autofocus="">
-        <input type="password" class="form-control" placeholder="Password" required="" >
+	    <form class="form-signin" role="form" action="/users" method="post">
+        <input type="name" class="form-control" placeholder="Your Name" required="" autofocus="" name="user[name]">
+        <input type="email" class="form-control" placeholder="Email address" required="" autofocus="" name="user[email]">
+        <input type="password" class="form-control" placeholder="Password" required="" name="user[pwd]">
         <button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 100px; height: 40px; float: right" >注册</button>
       	</form>
 	  </div>

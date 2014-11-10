@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Weibo:</b>
+  <%= @coment.weibo %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @coment.user %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @coment.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_coment_path(@coment) %> |
+<%= link_to 'Back', coments_path %>
