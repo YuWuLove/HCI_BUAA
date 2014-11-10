@@ -11,6 +11,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def forgetpwd
+    render :layout => false 
+  end
+
   def login
     @user=User.new(params[:user])
     if(@user.name==nil)

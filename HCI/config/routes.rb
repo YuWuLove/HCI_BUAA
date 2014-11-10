@@ -1,7 +1,11 @@
 HCI::Application.routes.draw do
-  resources :users
-  get 'login', to: 'users#login'
+  root :to => 'users#login'
 
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+
+  get 'login', to: 'users#login'
+  get '/user/forgetpwd', to: 'users#forgetpwd'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

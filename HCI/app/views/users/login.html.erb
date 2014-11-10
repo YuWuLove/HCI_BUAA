@@ -68,15 +68,15 @@
 	<div style="float:right; width:60%;">
 		<div  class="panel panel-default" style="float:right; margin-right:50px; width:60%;">
 		<div class="panel-body">
-		<form class="form-signin" role="form" action="/clients" method="post">
-        <input type="email" class="form-control" placeholder="Email address" required="" autofocus="">
-        <input type="password" class="form-control" placeholder="Password" required="">
+		<form class="form-signin" role="form" action="/sessions" method="post">
+        <input type="name" class="form-control" placeholder="Email address" name="user[name]"  required="" autofocus="">
+        <input type="password" class="form-control" placeholder="Password" required=""  name="user[pwd]">
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <a href="">忘记密码</a>
+        <a href="/user/forgetpwd">忘记密码</a>
         <button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 100px; height: 40px; float: right">登录</button>
       	</form>
       	</div>
@@ -86,10 +86,10 @@
 	<div class="panel panel-default"  style="float:right; margin-right:50px; width:60%;">
 	  <div class="panel-heading">据说你是新来的？</div>
 	  <div class="panel-body">
-	    <form class="form-signin" role="form" action="/login">
-        <input type="name" class="form-control" placeholder="Your Name" name="user[name]" required="" autofocus="">
+	    <form class="form-signin" role="form">
+        <input type="name" class="form-control" placeholder="Your Name" required="" autofocus="">
         <input type="email" class="form-control" placeholder="Email address" required="" autofocus="">
-        <input type="password" class="form-control" placeholder="Password" required="">
+        <input type="password" class="form-control" placeholder="Password" required="" >
         <button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 100px; height: 40px; float: right" >注册</button>
       	</form>
 	  </div>
