@@ -1,4 +1,7 @@
 HCI::Application.routes.draw do
+  resources :user_profiles
+
+
 #  resources :coments
 
 
