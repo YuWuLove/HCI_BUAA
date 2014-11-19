@@ -1,20 +1,38 @@
 <p id="notice"><%= notice %></p>
+<div style="float: left; width: 20%; border-right:2px solid gray;">
+  <p>
+    你好, <%= @user.name %>
+  </p>
+  <ul class="nav nav-pills nav-stacked">
+    <li role="presentation" class="active"><a href="#">Home</a></li>
+    <li role="presentation"><a href="#">Profile</a></li>
+    <li role="presentation"><a href="#">Messages</a></li>
+  </ul>
+</div>
 
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
+<div style="margin-left:25%;">
 
-<p>
-  <b>Pwd:</b>
-  <%= @user.pwd %>
-</p>
+  <div>
+    <div>
+      <image src="/images/2.jpg" style="width:40px;height: 40px; float:left"></image>
 
-<p>
-  <b>session:</b>
-  <%= session[:user_id] %>
-</p>
+      <p style="color: grey;  padding-left: 50px">
+        小明，小刚，赞了照片,两小时前
+      </p>
+    </div>
 
+    <div style="padding-top: 20px;">
+      <div style="width: 50px; float: left">
+        <button type="button" class="btn btn-default" style="float:left"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+        <span>308</span>
+        <button type="button" class="btn btn-default" style="float:left"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+      </div>
+      <div style="float: left">
+        <image src="/images/avator.png" style="width:400px;height:300px"></image>
+      </div>
+    </div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  </div>
+
+</div>
+

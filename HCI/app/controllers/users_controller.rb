@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
-  before_filter :checked_is_superuser, :except => [:new ,:index]
+  #before_filter :checked_is_superuser, :except => [:new ,:index]
   def index
     @users = User.all
 
