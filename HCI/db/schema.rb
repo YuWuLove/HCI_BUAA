@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141113151051) do
+ActiveRecord::Schema.define(:version => 20141114150218) do
 
   create_table "coments", :force => true do |t|
     t.integer  "weibo_id"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(:version => 20141113151051) do
 
   add_index "coments", ["user_id"], :name => "index_coments_on_user_id"
   add_index "coments", ["weibo_id"], :name => "index_coments_on_weibo_id"
+
+  create_table "friends", :force => true do |t|
+    t.integer  "uid"
+    t.integer  "fid"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "user_profiles", :force => true do |t|
     t.integer  "uid"
