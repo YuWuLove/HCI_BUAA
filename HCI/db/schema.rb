@@ -11,7 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141110020542) do
+ActiveRecord::Schema.define(:version => 20141114150218) do
+
+  create_table "coments", :force => true do |t|
+    t.integer  "weibo_id"
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "coments", ["user_id"], :name => "index_coments_on_user_id"
+  add_index "coments", ["weibo_id"], :name => "index_coments_on_weibo_id"
+
+  create_table "friends", :force => true do |t|
+    t.integer  "uid"
+    t.integer  "fid"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "user_profiles", :force => true do |t|
+    t.integer  "uid"
+    t.integer  "age"
+    t.integer  "degree"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

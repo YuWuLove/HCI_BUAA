@@ -1,0 +1,13 @@
+<h1> Listing users for search <%= params[:search_string] %></h1>
+<table>
+	<tr>
+		<td>Name</td>
+		<td>Email</td>
+	</tr>
+	<% for user in @users %>
+	<tr>
+		<td><%=h user.name %></td>
+		<td><%=h user.email %></td>
+	</tr>
+	<% end %>
+</table>
