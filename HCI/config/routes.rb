@@ -1,14 +1,16 @@
 HCI::Application.routes.draw do
   resources :friends
 
-
+  resources :coments
   resources :user_profiles
 
 
 #  resources :coments
 
 
-  resources :weibos
+  resources :weibos do
+    resources :coments
+  end
 
 
   root :to => 'users#login'
