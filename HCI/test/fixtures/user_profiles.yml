@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  uid: 1
+  age: 1
+  degree: 1
+
+two:
+  uid: 1
+  age: 1
+  degree: 1

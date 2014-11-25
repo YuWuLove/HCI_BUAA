@@ -14,7 +14,11 @@ class UsersController < ApplicationController
   def forgetpwd
     render :layout => false 
   end
-
+  def find
+    puts params[:search_string]
+    @users = User.find(:all, :conditions => ['name like ?', params[:search_string]])
+    puts params[@users.count]
+  end
   def login
     @user=User.new(params[:user])
     if(@user.name==nil)

@@ -1,8 +1,16 @@
 HCI::Application.routes.draw do
+  resources :friends
+
+  resources :coments
+  resources :user_profiles
+
+
 #  resources :coments
 
 
-  resources :weibos
+  resources :weibos do
+    resources :coments
+  end
 
 
   root :to => 'users#login'
@@ -12,8 +20,8 @@ HCI::Application.routes.draw do
   resources :users do
     resources :weibos
   end
-
-
+  match "/users/find" => "users#find", :via => :post
+  #post '/users/find' to: 'users#find'
   get 'login', to: 'users#login'
   get '/user/forgetpwd', to: 'users#forgetpwd'
   # The priority is based upon order of creation:

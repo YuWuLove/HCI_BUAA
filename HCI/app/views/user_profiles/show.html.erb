@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Uid:</b>
+  <%= @user_profile.uid %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%= @user_profile.age %>
+</p>
+
+<p>
+  <b>Degree:</b>
+  <%= @user_profile.degree %>
+</p>
+
+<p>
+  <b>avatar:</b>
+  <%= image_tag @user_profile.avatar.url %>
+  <%= image_tag @user_profile.avatar.url(:medium) %>
+  <%= image_tag @user_profile.avatar.url(:thumb) %>
+</p>
+
+<%= link_to 'Edit', edit_user_profile_path(@user_profile) %> |
+<%= link_to 'Back', user_profiles_path %>
