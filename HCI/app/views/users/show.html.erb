@@ -4,8 +4,8 @@
     你好, <%= @user.name %>
   </p>
   <ul class="nav nav-pills nav-stacked">
-    <li role="presentation" class="active"><a href="#">Po照片</a></li>
-    <li role="presentation"><a href="#">我的相册</a></li>
+    <li role="presentation" class="active"><%= link_to 'Po照片' ,request.url+'/weibos/new' %></a></li>
+    <li role="presentation"><%= link_to '我的相片' ,request.url+'/weibos' %></li>
     <li role="presentation"><a href="#">为我推荐的照片</a></li>
   </ul>
 </div>
@@ -32,6 +32,34 @@
       <div style="float: left border-bottom: 3px solid gray;padding-bottom: 30px">
         <image src="/images/avator.png" style="width:400px;height:300px;"></image>
       </div>
+      <%= coment = Coment.new %>
+      <%= form_for(coment) do |f| %>
+          <% if coment.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(coment.errors.count, "error") %> prohibited this coment from being saved:</h2>
+
+                <ul>
+                  <% coment.errors.full_messages.each do |msg| %>
+                      <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+          <div class="field">
+            <%= f.hidden_field :weibo_id %><br />
+          </div>
+          <div class="field">
+            <%= f.hidden_field :user_id %><br />
+          </div>
+          <div class="field">
+            <%= f.label :添加评论 %><br />
+            <%= f.text_area :content, :style=> 'width:600px; height: 80px'%>
+          </div>
+          <div class="actions">
+            <%= f.submit:value=>'提交' %>
+          </div>
+      <% end %>
     </div>
 
   </div>

@@ -11,7 +11,7 @@
 
 <% @weibos.each do |weibo| %>
   <tr>
-    <td><%= weibo.user %></td>
+    <td><%= weibo.user_id %></td>
     <td><%= weibo.content %></td>
     <td><%= link_to 'Show', weibo %></td>
     <td><%= link_to 'Edit', edit_weibo_path(weibo) %></td>

@@ -2,7 +2,7 @@ class WeibosController < ApplicationController
   # GET /weibos
   # GET /weibos.json
   def index
-    @weibos = Weibo.all
+    @weibos = Weibo.find_all_by_user_id(session[:user_id]);
 
     respond_to do |format|
       format.html # index.html.erb

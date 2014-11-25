@@ -3,6 +3,11 @@ class UsersController < ApplicationController
   # GET /users.json
   #before_filter :checked_is_superuser, :except => [:new ,:index]
   def index
+    if(params[:user]!=nil)
+      @user = User.find(params[:id])
+      format.html { redirect_to params[:id] , notice: 'User was successfully created.' }
+    end
+
     @users = User.all
 
     respond_to do |format|
