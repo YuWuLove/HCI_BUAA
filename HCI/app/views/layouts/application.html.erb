@@ -27,12 +27,12 @@
           </button>
           <a class="navbar-brand" href="#">Moment</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="./users/">首页</a></li>
-            <li><%= link_to '个人主页' ,'http://www.baidu.com' %></li>
-            <li><a href="#contact">好友</a></li>
-            <li><a href="#contact">发现</a></li>
+            <li id = "index" ><%= link_to '首页' ,'/users/'+session[:user_id].to_s %></li>
+            <li id="hp"><%= link_to '个人主页' ,'/users/'+session[:user_id].to_s+ '/homepage' %></li>
+            <li id="friend"><a href="#contact">好友</a></li>
+            <li id ="find"><a href="#contact">发现</a></li>
              <li><a href="#message">消息<span class="badge">4</span></a></li>
           </ul>
           

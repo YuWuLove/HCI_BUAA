@@ -23,7 +23,13 @@ HCI::Application.routes.draw do
   match "/users/find" => "users#find", :via => :post
   #post '/users/find' to: 'users#find'
   get 'login', to: 'users#login'
+
   get '/user/forgetpwd', to: 'users#forgetpwd'
+
+  get '/users/:id/homepage', to: 'users#homepage'
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

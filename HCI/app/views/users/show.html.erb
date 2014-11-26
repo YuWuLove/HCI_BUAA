@@ -1,11 +1,27 @@
 <p id="notice"><%= notice %></p>
+
+<script type="text/javascript">
+    window.onload= function setClass()
+    {
+        document.getElementById( "friend" ).className = "";
+        document.getElementById( "index" ).className = "active";
+        document.getElementById( "find" ).className = "";
+        document.getElementById( "hp" ).className = "";
+    }
+        function thumbup()
+        {
+
+        }
+</script>
+
+
 <div style="float: left; width: 20%; border-right:2px solid gray;">
   <p>
     你好, <%= @user.name %>
   </p>
   <ul class="nav nav-pills nav-stacked">
-    <li role="presentation" class="active"><%= link_to 'Po照片' ,request.url+'/weibos/new' %></a></li>
-    <li role="presentation"><%= link_to '我的相片' ,request.url+'/weibos' %></li>
+    <li role="presentation"><%= link_to 'Po照片' ,request.url+'/weibos/new' %></a></li>
+    <li role="presentation"><%= link_to '我的相片' ,request.url+'/weibos/new' %></li>
     <li role="presentation"><a href="#">为我推荐的照片</a></li>
   </ul>
 </div>

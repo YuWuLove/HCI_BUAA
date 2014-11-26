@@ -5,7 +5,11 @@ class UsersController < ApplicationController
   def index
     if(params[:user]!=nil)
       @user = User.find(params[:id])
-      format.html { redirect_to params[:id] , notice: 'User was successfully created.' }
+
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @user }
+      end
     end
 
     @users = User.all
@@ -19,6 +23,12 @@ class UsersController < ApplicationController
   def forgetpwd
     render :layout => false 
   end
+
+
+  def homepage
+    @user = User.find(params[:id])
+  end
+
   def find
     puts params[:search_string]
     @users = User.find(:all, :conditions => ['name like ?', params[:search_string]])

@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<script type="text/javascript">
+    window.onload= function setClass()
+    {
+        document.getElementById( "friend" ).className = "";
+        document.getElementById( "index" ).className = "";
+        document.getElementById( "find" ).className = "";
+        document.getElementById( "hp" ).className = "active";
+    }
+</script>
+
+
+<div  style="float: left;width:60%">
+
+  <div >
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <p style="font-size: large">
+        <b><%= @user.name %> </b>
+        今天很开心。
+        </p>
+        <image src="/images/2.jpg" style="width:200px;height: 200px; float:left"></image>
+        <div style="padding-left: 250px">
+          <p> 学生 </p>
+          <p> 北京</p>
+          <p> 互联网行业</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <p style="font-size: large">
+          <b>摄影风格 </b>
+        </div>
+
+      </div>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <p style="font-size: large">
+          <b>他的作品 </b>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
