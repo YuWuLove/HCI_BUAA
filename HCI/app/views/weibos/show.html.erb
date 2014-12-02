@@ -10,6 +10,12 @@
   <%= @weibo.content %>
 </p>
 
+<p>
+	<b>Photo:</b>
+	<%= image_tag @weibo.avatar.url %>
+	<%= image_tag @weibo.avatar.url(:medium) %>
+	<%= image_tag @weibo.avatar.url(:thumb) %>
+</p>
 
 <%= link_to 'Edit', edit_weibo_path(@weibo) %> |
 <%= link_to 'Back', weibos_path %>

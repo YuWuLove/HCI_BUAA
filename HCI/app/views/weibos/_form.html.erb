@@ -1,4 +1,4 @@
-<%= form_for(@weibo) do |f| %>
+<%= form_for(@weibo, :url => weibos_path, :html => { :multipart => true }) do |f| %>
   <% if @weibo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@weibo.errors.count, "error") %> prohibited this weibo from being saved:</h2>
@@ -13,6 +13,7 @@
   <div class="field">
     <%= f.label :content %><br />
     <%= f.text_field :content %>
+    <%= f.file_field :avatar %>
   </div>
   <div class="actions">
     <%= f.submit %>
