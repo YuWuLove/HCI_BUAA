@@ -8,9 +8,10 @@
         document.getElementById( "find" ).className = "";
         document.getElementById( "hp" ).className = "";
     }
-        function thumbup()
+        function thumbup(span_1)
         {
-
+            var obj=document.getElementById(span_1);//根据id来获取元素本身
+            
         }
 </script>
 
@@ -41,8 +42,8 @@
 
     <div style="padding-top: 20px;">
       <div style="width: 50px; float: left">
-        <button type="button" class="btn btn-default" style="float:left"><span class="glyphicon glyphicon-thumbs-up"></span></button>
-        <span>308</span>
+        <button type="button" class="btn btn-default" onclick="thumbup(span_1)" style="float:left"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+        <span id="span_1">308</span>
         <button type="button" class="btn btn-default" style="float:left"><span class="glyphicon glyphicon-thumbs-down"></span></button>
       </div>
       <div style="float: left border-bottom: 3px solid gray;padding-bottom: 30px">
