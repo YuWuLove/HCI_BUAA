@@ -8,10 +8,13 @@
         document.getElementById( "find" ).className = "";
         document.getElementById( "hp" ).className = "";
     }
-        function thumbup(span_1)
+        function thumbup(span_2)
         {
-            var obj=document.getElementById(span_1);//根据id来获取元素本身
-
+            span_2.innerHTML =parseInt(span_2.innerHTML)+1;            
+        }
+        function thumbdown(span_2)
+        {
+            span_2.innerHTML =parseInt(span_2.innerHTML)-1;
         }
 </script>
 
@@ -44,7 +47,7 @@
       <div style="width: 50px; float: left">
         <button type="button" class="btn btn-default" onclick="thumbup(span_1)" style="float:left"><span class="glyphicon glyphicon-thumbs-up"></span></button>
         <span id="span_1">308</span>
-        <button type="button" class="btn btn-default" style="float:left"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+        <button type="button" class="btn btn-default" onclick="thumbdown(span_1)" style="float:left"><span class="glyphicon glyphicon-thumbs-down"></span></button>
       </div>
       <div style="float: left border-bottom: 3px solid gray;padding-bottom: 30px">
         <image src="/images/avator.png" style="width:400px;height:300px;"></image>
