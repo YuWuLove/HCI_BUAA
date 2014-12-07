@@ -18,29 +18,37 @@
       <div class="panel-body">
         <p style="font-size: large">
         <b><%= @user.name %> </b>
-        今天很开心。
+        今天很开心。<%= @match[1] %>
         </p>
         <image src="/images/2.jpg" style="width:200px;height: 200px; float:left"></image>
         <div style="padding-left: 250px">
-          <p> 学生 </p>
-          <p> 北京</p>
-          <p> 互联网行业</p>
+          <p> 职业： <%= @profile.occupation %> </p>
+          <p> 所在地：<%= @profile.location %> </p>
+          <p> 所属领域： <%= @profile.majoy %></p>
         </div>
       </div>
     </div>
 
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <p style="font-size: large">
-          <b>摄影风格 </b>
-        </div>
-
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">摄影风格</h3>
       </div>
-
-    <div class="panel panel-default">
       <div class="panel-body">
-        <p style="font-size: large">
-          <b>他的作品 </b>
+        <table border="1" width="100%">
+          <tr>
+            <td>逗比照</td>
+            <td>Row 1, cell 2</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">他的作品</h3>
+      </div>
+      <div class="panel-body">
+        Panel content
       </div>
     </div>
 

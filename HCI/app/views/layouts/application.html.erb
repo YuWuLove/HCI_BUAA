@@ -31,7 +31,7 @@
           <ul class="nav navbar-nav">
             <li id = "index" ><%= link_to '首页' ,'/users/'+session[:user_id].to_s %></li>
             <li id="hp"><%= link_to '个人主页' ,'/users/'+session[:user_id].to_s+ '/homepage' %></li>
-            <li id="friend"><a href="#contact">好友</a></li>
+            <li id="friend"><%= link_to '好友' ,'/users/'+session[:user_id].to_s+ '/friends' %></li>
             <li id ="find"><a href="#contact">发现</a></li>
              <li><a href="#message">消息<span class="badge">4</span></a></li>
           </ul>
@@ -50,7 +50,7 @@
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> 设置</a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="edit">编辑个人资料</a></li>
+                <li><%= link_to '编辑个人资料' ,'/users/'+session[:user_id].to_s+ '/profile' %></li>
                 <li><%= link_to '隐私设置' ,request.url+'/edit' %></li>
                 <li><a href="#">消息设置</a></li>
                 <!--<li class="divider"></li>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141114150218) do
+ActiveRecord::Schema.define(:version => 20141203024432) do
 
   create_table "coments", :force => true do |t|
     t.integer  "weibo_id"
@@ -35,6 +35,10 @@ ActiveRecord::Schema.define(:version => 20141114150218) do
     t.integer  "uid"
     t.integer  "age"
     t.integer  "degree"
+    t.integer  "user_id"
+    t.string   "majoy"
+    t.string   "location"
+    t.string   "occupation"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.string   "avatar_file_name"
@@ -46,13 +50,10 @@ ActiveRecord::Schema.define(:version => 20141114150218) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "pwd"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
     t.string   "email"
-    t.string   "remember_token"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
-
-  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
   create_table "weibos", :force => true do |t|
     t.integer  "user_id"

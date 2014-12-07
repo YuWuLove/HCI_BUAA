@@ -26,14 +26,22 @@ class UsersController < ApplicationController
 
 
   def homepage
-    @user = User.find(params[:id])
+    @pattern = /users\/(.*)\/homepage/
+    @match = @pattern.match(request.url)
+    @user = User.find( @match[1])
+    @profile = @user.user_profile
+    if(@profile == nil)
+      @profile = UserProfile.find(1)
+    end
   end
 
   def find
-    puts params[:search_string]
+    if(session[:user_id]==nil)
+      redirect_to "http://jd.com"
+end
     @users = User.find(:all, :conditions => ['name like ?', params[:search_string]])
-    puts params[@users.count]
   end
+
   def login
     @user=User.new(params[:user])
     if(@user.name==nil)

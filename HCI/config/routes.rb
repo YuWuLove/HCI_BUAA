@@ -20,6 +20,11 @@ HCI::Application.routes.draw do
   resources :users do
     resources :weibos
   end
+
+  resources :users do
+    resources :friends
+  end
+
   match "/users/find" => "users#find", :via => :post
   #post '/users/find' to: 'users#find'
   get 'login', to: 'users#login'
@@ -27,7 +32,7 @@ HCI::Application.routes.draw do
   get '/user/forgetpwd', to: 'users#forgetpwd'
 
   get '/users/:id/homepage', to: 'users#homepage'
-
+  get '/users/:id/profile', to: 'user_profiles#user_edit'
 
 
   # The priority is based upon order of creation:

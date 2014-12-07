@@ -11,10 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="hidden">
     <%= f.label :uid %><br />
-    <%= f.number_field :uid %>
+    <%= f.hidden_field :uid, :value => session[:user_id]  %>
   </div>
+
+    <div class="hidden">
+      <%= f.hidden_field :user_id, :value => session[:user_id]  %>
+    </div>
+
   <div class="field">
     <%= f.label :age %><br />
     <%= f.number_field :age %>
@@ -24,9 +29,24 @@
     <%= f.number_field :degree %>
   </div>
   <div class="field">
-    <%= f.label :image %><br />
-    <%= f.file_field :avatar %>
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
   </div>
+
+    <div class="field">
+      <%= f.label :occupation %><br />
+      <%= f.text_field :occupation %>
+    </div>
+
+    <div class="field">
+      <%= f.label :majoy %><br />
+      <%= f.text_field :majoy %>
+    </div>
+
+    <div class="field">
+      <%= f.label :image %><br />
+      <%= f.file_field :avatar %>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>

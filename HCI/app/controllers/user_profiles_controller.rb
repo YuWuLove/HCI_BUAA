@@ -21,6 +21,16 @@ class UserProfilesController < ApplicationController
     end
   end
 
+  def user_edit
+    puts(session[:id])
+    @user_profile = UserProfile.find_by_user_id(params[:id])
+    if(@user_profile == nil)
+      redirect_to "http://localhost:3000/user_profiles/new"
+  else
+    redirect_to "http://localhost:3000/user_profiles/"+ @user_profile.id.to_int.to_s + "/edit"
+  end
+  end
+
   # GET /user_profiles/new
   # GET /user_profiles/new.json
   def new
