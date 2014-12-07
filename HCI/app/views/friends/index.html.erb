@@ -1,25 +1,21 @@
-<h1>Listing friends</h1>
+<% for user in @friend %>
+    <div class="panel panel-success" style="width: 60%">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <a href=<%="http://localhost:3000/users/" + user.id.to_s() +"/homepage" %> ><%= user.name %>
+          </a>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <image src="/images/3.jpg" style="width:120px;height: 120px; float:left"></image>
+        <div style="padding-left: 200px">
+          <div>
+            <span>所在地：<%= user.user_profile.location %></span> <br>
+            <span>从事行业：<%= user.user_profile.occupation %></span>
+          </div>
 
-<table>
-  <tr>
-    <th>Uid</th>
-    <th>Fid</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @friends.each do |friend| %>
-  <tr>
-    <td><%= friend.uid %></td>
-    <td><%= friend.fid %></td>
-    <td><%= link_to 'Show', friend %></td>
-    <td><%= link_to 'Edit', edit_friend_path(friend) %></td>
-    <td><%= link_to 'Destroy', friend, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+        </div>
+      </div>
+    </div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Friend', new_friend_path %>

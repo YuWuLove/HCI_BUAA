@@ -2,8 +2,12 @@ class FriendsController < ApplicationController
   # GET /friends
   # GET /friends.json
   def index
-    @friends = Friend.all
-
+    @id = session[:user_id]
+    @friends_id = Friend.find_all_by_uid(@id)
+    @friend = []
+    @friends_id.each do |f|
+      @friend.append(User.find(f.fid))
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @friends }

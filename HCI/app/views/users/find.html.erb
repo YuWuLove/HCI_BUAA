@@ -24,6 +24,7 @@
       temp.submit();
       return temp;
   }
+
 </script>
 <table>
 
@@ -43,9 +44,18 @@
                 <span>从事行业：<%= user.user_profile.occupation %></span>
               </div>
               <div>
-                <button type="button" class="btn btn-default" onclick="addfriend(<%= user.id %>)" style="float:right">
+                <% @temp = Friend.find(:all,:conditions=>["uid = ? and fid = ?",session[:user_id],user.id])
+                   if @temp==nil %>
+                <button id=<%= user.id%> type="button" class="btn btn-default" onclick="addfriend(<%= user.id %>)" style="float:right;
+                ">
                   加关注
                 </button>
+                    <%else%>
+                    <button id=<%= user.id%> type="button" class="btn btn-success " style="float:right">
+                      已关注
+                    </button>
+                <% end %>
+
               </div>
 
             </div>
