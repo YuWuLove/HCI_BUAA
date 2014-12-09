@@ -45,7 +45,7 @@
               </div>
               <div>
                 <% @temp = Friend.find(:all,:conditions=>["uid = ? and fid = ?",session[:user_id],user.id])
-                   if @temp==nil %>
+                   if @temp.size==0 %>
                 <button id=<%= user.id%> type="button" class="btn btn-default" onclick="addfriend(<%= user.id %>)" style="float:right;
                 ">
                   加关注

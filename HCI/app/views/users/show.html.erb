@@ -52,7 +52,7 @@
       <div style="float: left border-bottom: 3px solid gray;padding-bottom: 30px">
         <image src="/images/avator.png" style="width:400px;height:300px;"></image>
       </div>
-      <%= coment = Coment.new %>
+      <% coment = Coment.new %>
       <%= form_for(coment) do |f| %>
           <% if coment.errors.any? %>
               <div id="error_explanation">
@@ -77,7 +77,7 @@
             <%= f.text_area :content, :style=> 'width:600px; height: 80px'%>
           </div>
           <div class="actions">
-            <%= f.submit:value %>'提交' %>
+            <%= f.submit  %>
           </div>
       <% end %>
     </div>

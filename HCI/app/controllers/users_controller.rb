@@ -33,6 +33,8 @@ class UsersController < ApplicationController
     if(@profile == nil)
       @profile = UserProfile.find(1)
     end
+
+    @weibos = @user.weibos
   end
 
   def find
@@ -84,7 +86,8 @@ end
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        session[:user_id] = @user.id
+        format.html { redirect_to "http://localhost:3000/user_profiles/new", notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }

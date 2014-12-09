@@ -10,7 +10,6 @@
     }
 </script>
 
-
 <div  style="float: left;width:60%">
 
   <div >
@@ -26,6 +25,15 @@
           <p> 所在地：<%= @profile.location %> </p>
           <p> 所属领域： <%= @profile.majoy %></p>
         </div>
+
+        <div style="padding-left: 250px; padding-top: 40px">
+          <p> 我就是这么屌 <span class="glyphicon glyphicon-pencil"> </span> </p>
+        </div>
+
+
+      </div>
+      <div class="panel-body">
+        <span> 照片数: 赞数:</span>
       </div>
     </div>
 
@@ -34,10 +42,44 @@
         <h3 class="panel-title">摄影风格</h3>
       </div>
       <div class="panel-body">
-        <table border="1" width="100%">
-          <tr>
-            <td>逗比照</td>
-            <td>Row 1, cell 2</td>
+        <table  width="100%">
+          <tr style="width: 50%">
+            <td><img src="/images/plant.jpg" alt="image with circle shape" class="img-circle"
+                     style="width: 80px; height: 80px; float: left; margin: 10px">
+              <div style="float: left; padding-left: 10px; padding-top: 10px">
+                <span style="font-size: large"> 植物 </span><br>
+                <span> 一位植物鉴赏家 </span><br>
+                <span> 照片数: 赞数:</span>
+              </div>
+
+
+            </td>
+            <td><img src="/images/college.jpg" alt="image with circle shape" class="img-circle"
+                     style="width: 80px; height: 80px; float: left; margin: 10px">
+              <div style="float: left; padding-left: 10px; padding-top: 10px">
+                <span style="font-size: large"> 大学 </span><br>
+                <span> 愿意收集眼中的美 </span><br>
+                <span> 照片数: 赞数:</span>
+              </div>
+            </td>
+          </tr>
+          <tr style="width: 50%">
+            <td><img src="/images/humor.jpg" alt="image with circle shape" class="img-circle"
+                     style="width: 80px; height: 80px; float: left; margin: 10px">
+              <div style="float: left; padding-left: 10px; padding-top: 10px">
+                <span style="font-size: large"> 幽默 </span><br>
+                <span> 我是个逗比 </span><br>
+                <span> 照片数: 赞数:</span>
+              </div>
+            </td>
+            <td><img src="/images/food.jpg" alt="image with circle shape" class="img-circle"
+                     style="width: 80px; height: 80px; float: left; margin: 10px">
+              <div style="float: left; padding-left: 10px; padding-top: 10px">
+                <span style="font-size: large"> 食物 </span><br>
+                <span> 吃货，就是这么任性 </span><br>
+                <span> 照片数: 赞数:</span>
+              </div>
+            </td>
           </tr>
         </table>
       </div>
@@ -48,7 +90,40 @@
         <h3 class="panel-title">他的作品</h3>
       </div>
       <div class="panel-body">
-        Panel content
+
+        <div style="border-bottom: 3px solid gray">
+
+
+          <div>
+            <image src="/images/2.jpg" style="width:40px;height: 40px; float:left"></image>
+
+            <p style="color: grey;  padding-left: 50px">
+              小明，小刚，赞了照片,两小时前
+            </p>
+          </div>
+
+          <div style="padding-top: 20px;">
+            <div style="width: 50px; float: left">
+              <button type="button" class="btn btn-default" onclick="thumbup(span_1)" style="float:left"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+              <span id="span_1">308</span>
+              <button type="button" class="btn btn-default" onclick="thumbdown(span_1)" style="float:left"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+            </div>
+            <div style="float: left border-bottom: 3px solid gray;padding-bottom: 30px">
+              <image src="/images/avator.png" style="width:400px;height:300px;"></image>
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <%
+        for weibo in @weibos do %>
+        <%= weibo.content %>
+<br>
+        <%end
+        %>
       </div>
     </div>
 
