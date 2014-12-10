@@ -1,4 +1,7 @@
 HCI::Application.routes.draw do
+  resources :albums
+
+
   resources :friends
 
   resources :coments
@@ -17,6 +20,11 @@ HCI::Application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+
+  resources :users do
+    resources :albums
+  end
+
   resources :users do
     resources :weibos
   end

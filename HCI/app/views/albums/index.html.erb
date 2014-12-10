@@ -1,0 +1,16 @@
+<h1>我的相册</h1>
+
+<% @albums.each do |album| %>
+<div class="panel panel-success" style="width: 18%">
+  <div class="panel-body" align="center">
+    <img src="/images/humor.jpg" alt="image with circle shape" class="img-circle"
+         style="width: 80px; height: 80px;">
+    </div>
+  <div class="panel-body">
+    相册名：<%= album.name %><br>
+    描述：<%= album.description %>
+  </div>
+</div>
+<% end %>
+
+<%= link_to 'New Album', new_album_path %>
