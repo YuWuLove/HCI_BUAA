@@ -19,7 +19,7 @@
         <b><%= @user.name %> </b>
         今天很开心。
         </p>
-        <image src="/images/2.jpg" style="width:200px;height: 200px; float:left"></image>
+        <image src="<%= @profile.avatar.url %>" style="width:200px;height: 200px; float:left"></image>
         <div style="padding-left: 250px">
           <p> 职业： <%= @profile.occupation %> </p>
           <p> 所在地：<%= @profile.location %> </p>
@@ -95,7 +95,7 @@
 
 
           <div>
-            <image src="/images/2.jpg" style="width:40px;height: 40px; float:left"></image>
+            <image src="<%= @profile.avatar.url %>" style="width:40px;height: 40px; float:left"></image>
 
             <p style="color: grey;  padding-left: 50px">
               小明，小刚，赞了照片,两小时前
