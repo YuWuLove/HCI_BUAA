@@ -3,7 +3,6 @@ class AlbumsController < ApplicationController
   # GET /albums.json
   def index
     @albums = Album.find_all_by_user_id(session[:user_id])
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @albums }

@@ -34,4 +34,7 @@ HCI::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin;C:\Program Files\ImageMagick-6.9.0-Q16'
+
 end

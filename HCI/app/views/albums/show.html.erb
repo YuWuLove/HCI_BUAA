@@ -1,5 +1,55 @@
 <p id="notice"><%= notice %></p>
 
+<script type="text/javascript" charset="utf-8">
+  function click2()
+  {
+      alert("ee")
+      document.getElementById("screen").hidden = "";
+      onresize = tv.resize;
+      tv.init();
+  }
+</script>
+
+<div class="btn-group" style="float: right">
+  <button type="button" class="btn btn-primary">浏览方式</button>
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="#" onclick="click2()">照片墙</a></li>
+    <li class="divider"></li>
+    <li><a href="#">普通浏览</a></li>
+  </ul>
+  </button>
+</div>
+
+
+
+
+<div>
+
+
+
+<div>
+  <!--把下面代码加到<body>与</body>之间-->
+  <div id="screen" hidden="hidden">
+
+</div>
+  <div id="bankImages">
+    <img src="/images/slider/01.jpg" id="http://localhost:3000">
+    <img src="/images/slider/02.jpg" id="http://localhost:3000">
+    <img src="/images/slider/03.jpg" id="http://localhost:3000">
+    <img src="/images/slider/04.jpg" id="http://localhost:3000">
+    <img src="/images/slider/05.jpg" id="http://localhost:3000">
+  </div>
+  <script type="text/javascript">
+      onresize = tv.resize;
+      tv.init();
+  </script>
+</div>
+
+
 <p>
   <b>Name:</b>
   <%= @album.name %>
