@@ -2,7 +2,8 @@
 <html>
 <head>
   <title>HCI</title>
-  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link href="/css/flat-ui.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
 
 	<!-- 可选的Bootstrap主题文件（一般不用引入） -->
 	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
@@ -16,7 +17,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
- <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+ <nav class="navbar navbar-inverse" role="navigation" >
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -34,7 +35,7 @@
             <li id="friend"><%= link_to '好友' ,'/users/'+session[:user_id].to_s+ '/friends' %></li>
             <li id ="find"><%= link_to '发现' ,'/users/'+session[:user_id].to_s+ '/explore' %></li>
              <li class="dropdown">
-               <a href="#" class="dropdown-toggle" data-toggle="dropdown">消息<span class="badge">4</span> </a>
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown">消息<span class="badge" style="background-color: #ff0000">4</span> </a>
                <ul class="dropdown-menu" role="menu">
                  <li>
                    <span>
@@ -87,7 +88,7 @@
           position: absolute;
           margin: 0px;
           padding: 0px;
-background-color: #2980B9;
+background-color: #f6f8f8;
           width: 100%;
           height: 100%;
       }
@@ -320,7 +321,7 @@ background-color: #2980B9;
   </script>
 </head>
 <body>
-  <div style="margin-left:10%; margin-right:10%; padding: 10px; background-color: #BDC3C7">
+  <div style="margin-left:10%; margin-right:10%; padding: 10px;  height: 100%">
   <%= yield %>
   </div>
 </body>

@@ -23,10 +23,10 @@
   <p>
     你好, <%= @user.name %>
   </p>
-  <ul class="nav nav-pills nav-stacked">
+  <ul class="nav nav-stacked" style="background-color: #000000">
     <li role="presentation"><%= link_to 'Po照片' ,request.url+'/weibos/new' %></a></li>
     <li role="presentation"><%= link_to '我的相册' ,request.url+'/albums' %></li>
-    <li role="presentation"><a href="#">为我推荐的照片</a></li>
+    <li role="presentation"><%= link_to '为我推荐的' ,request.url+'/albums' %></a></li>
   </ul>
 </div>
 
@@ -37,20 +37,18 @@
 
     <div>
       <image src="/images/2.jpg" style="width:40px;height: 40px; float:left"></image>
-
-      <p style="color: grey;  padding-left: 50px">
-        小明，小刚，赞了照片,两小时前
-      </p>
     </div>
 
     <div style="padding-top: 20px;">
-      <div style="width: 50px; float: left">
-        <button type="button" class="btn btn-default" onclick="thumbup(span_1)" style="float:left"><span class="glyphicon glyphicon-thumbs-up"></span></button>
-        <span id="span_1">308</span>
-        <button type="button" class="btn btn-default" onclick="thumbdown(span_1)" style="float:left"><span class="glyphicon glyphicon-thumbs-down"></span></button>
-      </div>
       <div style="float: left border-bottom: 3px solid gray;padding-bottom: 30px">
-        <image src="/images/avator.png" style="width:400px;height:300px;"></image>
+        <image src="/images/The-Dunloe.jpg" style="width:600px;height:400px;"></image>
+
+        <p style="color: grey;  padding-left: 50px">
+          小明，小刚，赞了照片,两小时前
+        </p>
+        <span class="glyphicon glyphicon-heart-empty" onmousemove=thumbup("span2")>
+
+        </span>
       </div>
       <% coment = Coment.new %>
       <%= form_for(coment) do |f| %>
