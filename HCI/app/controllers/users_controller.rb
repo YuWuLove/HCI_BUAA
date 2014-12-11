@@ -24,6 +24,9 @@ class UsersController < ApplicationController
     render :layout => false 
   end
 
+  def explore
+
+  end
 
   def homepage
     @pattern = /users\/(.*)\/homepage/

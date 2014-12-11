@@ -41,7 +41,7 @@ HCI::Application.routes.draw do
 
   get '/users/:id/homepage', to: 'users#homepage'
   get '/users/:id/profile', to: 'user_profiles#user_edit'
-
+  get '/users/:id/explore', to: 'users#explore'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

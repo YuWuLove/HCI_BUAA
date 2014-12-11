@@ -16,7 +16,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
- <nav class="navbar navbar-default navbar-static-top" role="navigation">
+ <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -32,7 +32,7 @@
             <li id = "index" ><%= link_to '首页' ,'/users/'+session[:user_id].to_s %></li>
             <li id="hp"><%= link_to '个人主页' ,'/users/'+session[:user_id].to_s+ '/homepage' %></li>
             <li id="friend"><%= link_to '好友' ,'/users/'+session[:user_id].to_s+ '/friends' %></li>
-            <li id ="find"><a href="#contact">发现</a></li>
+            <li id ="find"><%= link_to '发现' ,'/users/'+session[:user_id].to_s+ '/explore' %></li>
              <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown">消息<span class="badge">4</span> </a>
                <ul class="dropdown-menu" role="menu">
@@ -72,7 +72,7 @@
                 <li><a href=>帮助中心</a></li>
               </ul>
             </li>
-            <li><a href=".."><span class="glyphicon glyphicon-off"></span> 注销</a></li>
+            <li><a href="localhost:3000"><span class="glyphicon glyphicon-off"></span> 注销</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -81,13 +81,13 @@
 
   <style type="text/css">
       html {
-          overflow: hidden;
+
       }
       body {
           position: absolute;
           margin: 0px;
           padding: 0px;
-
+background-color: #2980B9;
           width: 100%;
           height: 100%;
       }
@@ -320,7 +320,7 @@
   </script>
 </head>
 <body>
-  <div style="margin-left:10%; margin-right:10%">
+  <div style="margin-left:10%; margin-right:10%; padding: 10px; background-color: #BDC3C7">
   <%= yield %>
   </div>
 </body>

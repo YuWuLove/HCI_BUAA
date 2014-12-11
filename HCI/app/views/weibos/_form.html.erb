@@ -10,10 +10,23 @@
       </ul>
     </div>
   <% end %>
+
+    <div class="hidden">
+      <%= f.label :uid %><br />
+      <%= f.hidden_field :uid, :value => session[:user_id]  %>
+    </div>
+
+    <div class="field">
+      <%= f.label :image %><br />
+      <%= f.file_field :avatar %>
+    </div>
+
   <div class="field">
-    <%= f.label :content %><br />
+    <%= f.label :图片描述 %><br />
     <%= f.text_field :content %>
   </div>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

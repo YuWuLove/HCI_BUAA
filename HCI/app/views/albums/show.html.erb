@@ -10,6 +10,14 @@
   }
 </script>
 
+<p>
+  <b>相册封面:</b>
+  <%= image_tag @album.avatar.url %>
+  <%= image_tag @album.avatar.url(:medium) %>
+  <%= image_tag @album.avatar.url(:thumb) %>
+</p>
+
+
 <div class="btn-group" style="float: right">
   <button type="button" class="btn btn-primary">浏览方式</button>
   <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -51,12 +59,12 @@
 
 
 <p>
-  <b>Name:</b>
+  <b>相册名:</b>
   <%= @album.name %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b>相册描述:</b>
   <%= @album.description %>
 </p>
 

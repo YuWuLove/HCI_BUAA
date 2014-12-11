@@ -3,7 +3,7 @@
 <% @albums.each do |album| %>
 <div class="panel panel-success" style="width: 18%; float: left; margin: 10px">
   <div class="panel-body" align="center">
-    <img src="/images/humor.jpg" alt="image with circle shape" class="img-circle"
+    <img src=" <%= album.avatar.url %>" alt="image with circle shape" class="img-circle"
          style="width: 80px; height: 80px;">
     </div>
   <div class="panel-body">

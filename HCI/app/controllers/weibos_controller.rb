@@ -25,7 +25,7 @@ class WeibosController < ApplicationController
   # GET /weibos/new.json
   def new
     @weibo = Weibo.new
-
+    @albums = Album.find_all_by_user_id(session[:user_id])
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @weibo }
