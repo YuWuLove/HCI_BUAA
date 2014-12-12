@@ -1,5 +1,5 @@
 class Weibo < ActiveRecord::Base
-  attr_accessible :content, :user, :avatar
+  attr_accessible :content, :user, :avatar,  :user_id, :album_id
   belongs_to :user
   belongs_to :album
   has_many :coment

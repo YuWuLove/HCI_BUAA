@@ -91,37 +91,32 @@
       </div>
       <div class="panel-body">
 
-        <div style="border-bottom: 3px solid gray">
-
-
-          <div>
-            <image src="<%= @profile.avatar.url %>" style="width:40px;height: 40px; float:left"></image>
-
-            <p style="color: grey;  padding-left: 50px">
-              小明，小刚，赞了照片,两小时前
-            </p>
-          </div>
-
-          <div style="padding-top: 20px;">
-            <div style="width: 50px; float: left">
-              <button type="button" class="btn btn-default" onclick="thumbup(span_1)" style="float:left"><span class="glyphicon glyphicon-thumbs-up"></span></button>
-              <span id="span_1">308</span>
-              <button type="button" class="btn btn-default" onclick="thumbdown(span_1)" style="float:left"><span class="glyphicon glyphicon-thumbs-down"></span></button>
-            </div>
-            <div style="float: left border-bottom: 3px solid gray;padding-bottom: 30px">
-              <image src="/images/avator.png" style="width:400px;height:300px;"></image>
-            </div>
-
-          </div>
-
-        </div>
-
-
-
-        <%
+              <%
         for weibo in @weibos do %>
-        <%= weibo.content %>
-<br>
+            <div style="border-bottom: 3px solid gray">
+
+
+              <div>
+                <image src="<%= @profile.avatar.url %>" style="width:40px;height: 40px; float:left"></image>
+
+                <p style="color: grey;  padding-left: 50px">
+                  <%= @user.name%>于<%= weibo.created_at%>发布<%= weibo.content%>
+                </p>
+              </div>
+
+              <div style="padding-top: 20px;">
+                <div style="width: 50px; float: left">
+                  <button type="button" class="btn btn-default" onclick="thumbup(span_1)" style="float:left"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+                  <span id="span_1">308</span>
+                  <button type="button" class="btn btn-default" onclick="thumbdown(span_1)" style="float:left"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+                </div>
+                <div style="float: left border-bottom: 3px solid gray;padding-bottom: 30px">
+                  <image src="<%= weibo.avatar.url %>" style="width:400px;height:300px; margin-left: 15px"></image>
+                </div>
+
+              </div>
+
+            </div>
         <%end
         %>
       </div>

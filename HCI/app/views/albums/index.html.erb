@@ -1,25 +1,37 @@
 <h1>我的相册</h1>
 
-<% @albums.each do |album| %>
-<div class="panel panel-success" style="width: 18%; float: left; margin: 10px">
-  <div class="panel-body" align="center">
-    <img src=" <%= album.avatar.url %>" alt="image with circle shape" class="img-circle"
-         style="width: 80px; height: 80px;">
-    </div>
-  <div class="panel-body">
-    相册名：<%= album.name %><br>
-    描述：<%= album.description %><br>
-    <div style="float: right">
-      <%= link_to '进入', album %>
-      <%= link_to '编辑', edit_album_path(album) %>
-      <%= link_to '删除', album, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </div>
 
-  </div>
+<table  style="width: 100%">
+  <tr>
+    <th>
+      <% @albums.each do |album| %>
+          <div class="panel panel-success" style="width: 18%; float: left; margin: 10px">
+            <div class="panel-body" align="center">
+              <img src=" <%= album.avatar.url %>" alt="image with circle shape" class="img-circle"
+                   style="width: 80px; height: 80px;">
+            </div>
+            <div class="panel-body">
+              相册名：<%= album.name %><br>
+              描述：<%= album.description %><br>
+              <div style="float: right">
+                <%= link_to '进入', album %>
+                <%= link_to '编辑', edit_album_path(album) %>
+                <%= link_to '删除', album, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </div>
 
-</div>
-<% end %>
+            </div>
 
-  <%= link_to 'New Album', new_album_path %>
+          </div>
+      <% end %></th>
+  </tr>
+  <tr>
+    <td><div style="margin:10px"><%= link_to '新建相册', new_album_path %></div></td>
+  </tr>
+</table>
+
+
+
+
+
 
 

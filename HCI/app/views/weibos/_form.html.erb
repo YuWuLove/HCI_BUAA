@@ -12,12 +12,12 @@
   <% end %>
 
     <div class="hidden">
-      <%= f.label :uid %><br />
-      <%= f.hidden_field :uid, :value => session[:user_id]  %>
+      <%= f.label :user_id %><br />
+      <%= f.hidden_field :user_id, :value => session[:user_id]  %>
     </div>
 
     <div class="field">
-      <%= f.label :image %><br />
+      <%= f.label :图片 %><br />
       <%= f.file_field :avatar %>
     </div>
 
@@ -25,8 +25,15 @@
     <%= f.label :图片描述 %><br />
     <%= f.text_field :content %>
   </div>
-
-
+    <%= f.label :所属相册 %><br />
+<select name="weibo[album_id]">
+  <%
+     @albums = Album.find_all_by_user_id(session[:user_id])
+  %>
+  <%=  @albums.each do |a| %>
+  <option value="<%= a.id %>"><%= a.name %></option>
+  <% end %>
+</select>
   <div class="actions">
     <%= f.submit %>
   </div>
