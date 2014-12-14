@@ -33,4 +33,16 @@
   }
 
 </script>
+  <% for album in @weibos %>
+    <span style="float: left;margin: 10px">
+         <a href="">
+           <image src="<%= album.avatar.url %>" style="width: 100px;height:100px"/>
+         </a>
 
+
+      </image>
+      <p> 相册名：<%= album.name %></p>
+    <p>相册所有者：<a href=""> <%= User.find(album.user_id).name %></a></p>
+    </span>
+
+  <% end %>

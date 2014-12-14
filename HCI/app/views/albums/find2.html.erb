@@ -1,72 +1,48 @@
 
 <ul class="nav nav-tabs" role="tablist">
   <li role="presentation"><a href="#">用户</a></li>
-  <li role="presentation"><%= link_to("标签",{:controller =>'albums',:action => 'find',:tag =>params[:search_string]  ,:per_page =>10})%> </li>
-  <li role="presentation"  class="active"><%= link_to("图片",{:controller =>'albums',:action => 'index',:tag =>params[:search_string] ,:per_page =>10})%> </li>
+  <li role="presentation" class="active"><%= link_to("标签",{:controller =>'albums',:action => 'find',:tag =>params[:search_string] })%> </li>
+  <li role="presentation"><%= link_to("图片",{:controller =>'albums',:action => 'index',:tag =>params[:search_string]})%> </li>
 </ul>
 
-<h3>下面是关于用户 <%= params[:search_string] %> 的搜索结果</h3>
+<h3>下面是关于标签 <%= params[:tag] %> 的搜索结果</h3>
 <script type="text/javascript" charset="utf-8">
-  function addfriend(id)
-  {
-      var temp = document.createElement("form");
-      temp.action = "/friends";
-      temp.method = "post";
-      temp.style.display = "none";
+    function addfriend(id)
+    {
+        var temp = document.createElement("form");
+        temp.action = "/friends";
+        temp.method = "post";
+        temp.style.display = "none";
 
-      var opt = document.createElement("textarea");
-      opt.name = "friend[uid]";
-      opt.value = <%= session[:user_id] %>;
-      // alert(opt.name)
-      temp.appendChild(opt);
+        var opt = document.createElement("textarea");
+        opt.name = "friend[uid]";
+        opt.value = <%= session[:user_id] %>;
+        // alert(opt.name)
+        temp.appendChild(opt);
 
-      var opt2 = document.createElement("textarea");
-      opt2.name = "friend[fid]";
-      opt2.value = id;
-      // alert(opt.name)
-      temp.appendChild(opt2);
+        var opt2 = document.createElement("textarea");
+        opt2.name = "friend[fid]";
+        opt2.value = id;
+        // alert(opt.name)
+        temp.appendChild(opt2);
 
 
-      document.body.appendChild(temp);
-      temp.submit();
-      return temp;
-  }
+        document.body.appendChild(temp);
+        temp.submit();
+        return temp;
+    }
 
 </script>
-<table>
+<% for album in @weibos %>
+    <span style="float: left;margin: 10px">
+         <a href="">
+           <image src="<%= album.avatar.url %>" style="width: 100px;height:100px"/>
+         </a>
 
-	<% for user in @users %>
-      <div class="panel panel-success" style="width: 60%">
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          <a href=<%="http://localhost:3000/users/" + user.id.to_s() +"/homepage" %> ><%= user.name %>
-                  </a>
-        </h3>
-        </div>
-        <div class="panel-body">
-            <image src="/images/3.jpg" style="width:120px;height: 120px; float:left"></image>
-            <div style="padding-left: 200px">
-              <div>
-                <span>所在地：<%= user.user_profile.location %></span> <br>
-                <span>从事行业：<%= user.user_profile.occupation %></span>
-              </div>
-              <div>
-                <% @temp = Friend.find(:all,:conditions=>["uid = ? and fid = ?",session[:user_id],user.id])
-                   if @temp.size==0 %>
-                <button id=<%= user.id%> type="button" class="btn btn-default" onclick="addfriend(<%= user.id %>)" style="float:right;
-                ">
-                  加关注
-                </button>
-                    <%else%>
-                    <button id=<%= user.id%> type="button" class="btn btn-success " style="float:right">
-                      已关注
-                    </button>
-                <% end %>
 
-              </div>
+      </image>
+      <p> 相册名：<%= album.name %></p>
+    <p>相册所有者：<a href=""> <%= User.find(album.user_id).name %></a></p>
+    </span>
 
-            </div>
-          </div>
-      </div>
-	<% end %>
-</table>
+<% end %>

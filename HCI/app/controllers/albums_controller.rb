@@ -11,12 +11,11 @@ class AlbumsController < ApplicationController
 
 
   def find
-    #@weibos = Album.find(:all, :conditions => ['tag like ?', params[:tag]])
-    @weibos = Album.find_all_by_tag( params[:tag])
+    @weibos = Album.find(:all, :conditions => ['tag like ?', params[:tag]])
   end
 
   def find2
-
+    @weibos = Album.find(:all, :conditions => ['name like ?', params[:tag]])
   end
   # GET /albums/1
   # GET /albums/1.json
