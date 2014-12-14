@@ -1,4 +1,9 @@
 HCI::Application.routes.draw do
+
+  match "/albums/find" =>"albums#find"
+  resources :collections
+
+
   resources :albums
 
 
@@ -33,7 +38,12 @@ HCI::Application.routes.draw do
     resources :friends
   end
 
+  resources :users do
+    resources :collections
+  end
+
   match "/users/find" => "users#find", :via => :post
+
   #post '/users/find' to: 'users#find'
   get 'login', to: 'users#login'
 

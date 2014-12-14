@@ -21,30 +21,39 @@
     </div>
 
   <div class="field">
-    <%= f.label :age %><br />
+    <%= f.label :年龄 %><br />
     <%= f.number_field :age %>
   </div>
   <div class="field">
-    <%= f.label :degree %><br />
-    <%= f.number_field :degree %>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br />
+    <%= f.label :所在地 %><br />
     <%= f.text_field :location %>
   </div>
 
     <div class="field">
-      <%= f.label :occupation %><br />
+      <%= f.label :职业 %><br />
       <%= f.text_field :occupation  %>
     </div>
 
     <div class="field">
-      <%= f.label :majoy %><br />
+      <%= f.label :擅长领域 %><br />
       <%= f.text_field :majoy %>
     </div>
 
     <div class="field">
-      <%= f.label :image %><br />
+      <%= f.label :个人简介 %><br />
+      <%= f.text_field :status %>
+    </div>
+    <div class="field">
+      <%= f.label :签名 %><br />
+      <%= f.text_field :qianming %>
+    </div>
+    <div class="field">
+      <%= f.label :个人喜好 %><br />
+      <%= f.text_field :perference %>
+    </div>
+
+    <div class="field">
+      <%= f.label :头像 %><br />
       <%= f.file_field :avatar %>
     </div>
   <div class="actions">

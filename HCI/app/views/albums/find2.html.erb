@@ -1,8 +1,8 @@
 
 <ul class="nav nav-tabs" role="tablist">
-  <li role="presentation" class="active"><a href="#">用户</a></li>
-  <li role="presentation"><%= link_to("标签",{:controller =>'albums',:action => 'find',:tag =>params[:search_string] })%> </li>
-  <li role="presentation"><%= link_to("图片",{:controller =>'albums',:action => 'find',:tag =>params[:search_string]})%> </li>
+  <li role="presentation"><a href="#">用户</a></li>
+  <li role="presentation"><%= link_to("标签",{:controller =>'albums',:action => 'find',:tag =>params[:search_string]  ,:per_page =>10})%> </li>
+  <li role="presentation"  class="active"><%= link_to("图片",{:controller =>'albums',:action => 'index',:tag =>params[:search_string] ,:per_page =>10})%> </li>
 </ul>
 
 <h3>下面是关于用户 <%= params[:search_string] %> 的搜索结果</h3>

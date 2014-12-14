@@ -3,7 +3,6 @@
 <script type="text/javascript" charset="utf-8">
   function click2()
   {
-      alert("ee")
       document.getElementById("screen").hidden = "";
       onresize = tv.resize;
       tv.init();
@@ -61,7 +60,7 @@
 
 <% @photos.each do |p| %>
     <div style="float:left; margin: 10px">
-      <a href="#">
+      <a href="<%="http://localhost:3000/weibos/"+ p.id.to_s %>">
         <image src="<%= p.avatar.url %>" style="width:200px;height: 200px;"></image>
       </a>
       <p style="margin-left: 150px">赞:123</p>

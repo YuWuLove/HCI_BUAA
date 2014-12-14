@@ -13,6 +13,7 @@
             <div class="panel-body">
               相册名：<%= album.name %><br>
               描述：<%= album.description %><br>
+              标签：<%= album.tag %><br>
               <div style="float: right">
                 <%= link_to '进入', album %>
                 <%= link_to '编辑', edit_album_path(album) %>

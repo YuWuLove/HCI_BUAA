@@ -11,13 +11,12 @@
 </script>
 
 <div  style="float: left;width:60%;">
-
   <div >
     <div class="panel panel-default">
       <div class="panel-body">
         <p style="font-size: large">
         <b><%= @user.name %> </b>
-        今天很开心。
+        <%= @user.user_profile.status %>
         </p>
         <image src="<%= @profile.avatar.url %>" style="width:200px;height: 200px; float:left"></image>
         <div style="padding-left: 250px">
@@ -27,11 +26,10 @@
         </div>
 
         <div style="padding-left: 250px; padding-top: 40px">
-          <p> 我就是这么屌 <span class="glyphicon glyphicon-pencil"> </span> </p>
+          <p> <%= @user.user_profile.qianming %> <a href="<%= '/users/'+session[:user_id].to_s+ '/profile' %>"><span class="glyphicon glyphicon-pencil"> </span></a> </p>
         </div>
-
-
       </div>
+
       <div class="panel-body">
         <span> 照片数: 赞数:</span>
       </div>
@@ -125,5 +123,22 @@
   </div>
 
 </div>
+<div style="margin-left: 70%">
+<table>
+  <tr>
+    <td>
+      关注了：
+    </td>
+    <td>
+      被关注：
+    </td>
+  </tr>
+  <tr>
+    <td> 关注了7个相册</td>
+  </tr>
+  <tr>
+   <td> 关注了35个标签</td>
+  </tr>
+</table>
 
 </div>
