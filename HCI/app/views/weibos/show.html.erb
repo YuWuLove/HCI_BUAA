@@ -1,15 +1,84 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>User:</b>
-  <%= @weibo.user %>
-</p>
+<script type="text/javascript" charset="utf-8">
+    function addfriend(id)
+    {
+        var temp = document.createElement("form");
+        temp.action = "/collections";
+        temp.method = "post";
+        temp.style.display = "none";
 
-<p>
-  <b>Content:</b>
-  <%= @weibo.content %>
-</p>
+        var opt = document.createElement("textarea");
+        opt.name = "collection[user_id]";
+        opt.value = <%= session[:user_id] %>;
+        // alert(opt.name)
+        temp.appendChild(opt);
+
+        var opt2 = document.createElement("textarea");
+        opt2.name = "collection[weibo_id]";
+        opt2.value = id;
+        // alert(opt.name)
+        temp.appendChild(opt2);
 
 
-<%= link_to 'Edit', edit_weibo_path(@weibo) %> |
-<%= link_to 'Back', weibos_path %>
+        document.body.appendChild(temp);
+        temp.submit();
+        return temp;
+    }
+
+</script>
+
+<div>
+  <image src="<%=  @weibo.user.user_profile.avatar.url %>" class="img-circle" style="width:40px;height: 40px; float:left;"></image>
+</div>
+
+<div style=" margin-left: 70px;">
+  <div style="float: left border-bottom: 3px solid gray;padding-bottom: 30px">
+    <p><a href="#"><%= @weibo.user.name %></a>的照片<%= @weibo.content %></p>
+    <image src="<%= @weibo.avatar.url %>" style="width:600px;height:400px;"></image>
+    <div class="panel panel-default" style="width: 600px; margin-left: 0px" >
+      <div class="panel-heading"><button class="btn btn-default">
+        <span class="glyphicon glyphicon-heart-empty"></span>
+      </button>
+        <button class="btn btn-default"  onclick="addfriend(<%= @weibo.id %>)">
+          <span class="glyphicon glyphicon-briefcase"></span>
+        </button>
+
+        <span style="margin-left: 30px"> 小明，小刚，等260人赞了照片,两小时前</span>
+      </div>
+      <div class="panel-body">dsaf
+      </div>
+      <% coment = Coment.new %>
+      <%= form_for(coment) do |f| %>
+          <% if coment.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(coment.errors.count, "error") %> prohibited this coment from being saved:</h2>
+
+                <ul>
+                  <% coment.errors.full_messages.each do |msg| %>
+                      <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+          <div class="field">
+            <%= f.hidden_field :weibo_id %><br />
+          </div>
+          <div class="field">
+            <%= f.hidden_field :user_id,:value=> session[:user_id] %><br />
+          </div>
+          <div class="field">
+            <%= f.text_area :content ,:class => 'form-control', :style=> 'width:600px; height: 80px'%>
+          </div>
+          <div class="actions">
+            <%= f.submit  :class =>'btn btn-default' ,:value =>'评论', :style => 'float:right'%>
+          </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
+</div>
+

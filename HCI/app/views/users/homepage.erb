@@ -10,14 +10,13 @@
     }
 </script>
 
-<div  style="float: left;width:60%">
-
+<div  style="float: left;width:60%;">
   <div >
     <div class="panel panel-default">
       <div class="panel-body">
         <p style="font-size: large">
         <b><%= @user.name %> </b>
-        今天很开心。
+        <%= @user.user_profile.status %>
         </p>
         <image src="<%= @profile.avatar.url %>" style="width:200px;height: 200px; float:left"></image>
         <div style="padding-left: 250px">
@@ -27,17 +26,16 @@
         </div>
 
         <div style="padding-left: 250px; padding-top: 40px">
-          <p> 我就是这么屌 <span class="glyphicon glyphicon-pencil"> </span> </p>
+          <p> <%= @user.user_profile.qianming %> <a href="<%= '/users/'+session[:user_id].to_s+ '/profile' %>"><span class="glyphicon glyphicon-pencil"> </span></a> </p>
         </div>
-
-
       </div>
+
       <div class="panel-body">
         <span> 照片数: 赞数:</span>
       </div>
     </div>
 
-    <div class="panel panel-success">
+    <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">优秀相册</h3>
       </div>
@@ -85,43 +83,38 @@
       </div>
     </div>
 
-    <div class="panel panel-success">
+    <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">他的作品</h3>
       </div>
       <div class="panel-body">
 
-        <div style="border-bottom: 3px solid gray">
-
-
-          <div>
-            <image src="<%= @profile.avatar.url %>" style="width:40px;height: 40px; float:left"></image>
-
-            <p style="color: grey;  padding-left: 50px">
-              小明，小刚，赞了照片,两小时前
-            </p>
-          </div>
-
-          <div style="padding-top: 20px;">
-            <div style="width: 50px; float: left">
-              <button type="button" class="btn btn-default" onclick="thumbup(span_1)" style="float:left"><span class="glyphicon glyphicon-thumbs-up"></span></button>
-              <span id="span_1">308</span>
-              <button type="button" class="btn btn-default" onclick="thumbdown(span_1)" style="float:left"><span class="glyphicon glyphicon-thumbs-down"></span></button>
-            </div>
-            <div style="float: left border-bottom: 3px solid gray;padding-bottom: 30px">
-              <image src="/images/avator.png" style="width:400px;height:300px;"></image>
-            </div>
-
-          </div>
-
-        </div>
-
-
-
-        <%
+              <%
         for weibo in @weibos do %>
-        <%= weibo.content %>
-<br>
+            <div style="border-bottom: 3px solid gray">
+
+
+              <div>
+                <image src="<%= @profile.avatar.url %>" style="width:40px;height: 40px; float:left"></image>
+
+                <p style="color: grey;  padding-left: 50px">
+                  <%= @user.name%>于<%= weibo.created_at%>发布<%= weibo.content%>
+                </p>
+              </div>
+
+              <div style="padding-top: 20px;">
+                <div style="width: 50px; float: left">
+                  <button type="button" class="btn btn-default" onclick="thumbup(span_1)" style="float:left"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+                  <span id="span_1">308</span>
+                  <button type="button" class="btn btn-default" onclick="thumbdown(span_1)" style="float:left"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+                </div>
+                <div style="float: left border-bottom: 3px solid gray;padding-bottom: 30px">
+                  <image src="<%= weibo.avatar.url %>" style="width:400px;height:300px; margin-left: 15px"></image>
+                </div>
+
+              </div>
+
+            </div>
         <%end
         %>
       </div>
@@ -130,5 +123,60 @@
   </div>
 
 </div>
+<div style="margin-left: 70%">
+<table style="font-size: large">
+  <tr>
+    <td style="height: 50px">
+     <b>关注了：23人</b>
+    </td>
+    <td>
+      <b>被关注：40人</b>
+    </td>
+  </tr>
+  <tr>
+    <td> 关注了7个相册</td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        <image src="/images/plant.jpg" class="img-circle"
+               style="width: 30px; height: 30px; float: left;"/>
+        <image src="/images/plant.jpg" class="img-circle"
+               style="width: 30px; height: 30px; float: left;"/>
+        <image src="/images/plant.jpg" class="img-circle"
+               style="width: 30px; height: 30px; float: left;"/>
+        <image src="/images/plant.jpg" class="img-circle"
+               style="width: 30px; height: 30px; float: left;"/>
+      </p>
+    </td>
+
+  </tr>
+  <tr style="padding-top: 30px">
+   <td> 关注了35个标签</td>
+  </tr>
+  <tr>
+    <td  colspan="2">
+      <image src="/images/plant.jpg" class="img-circle"
+             style="width: 30px; height: 30px; float: left;"/>
+      <image src="/images/plant.jpg" class="img-circle"
+             style="width: 30px; height: 30px; float: left;"/>
+      <image src="/images/plant.jpg" class="img-circle"
+             style="width: 30px; height: 30px; float: left;"/>
+      <image src="/images/plant.jpg" class="img-circle"
+             style="width: 30px; height: 30px; float: left;"/>
+      <image src="/images/plant.jpg" class="img-circle"
+             style="width: 30px; height: 30px; float: left;"/>
+      <image src="/images/plant.jpg" class="img-circle"
+             style="width: 30px; height: 30px; float: left;"/>
+    </td>
+  </tr>
+  <tr style="font-size: small">
+    <td  colspan="2">
+      <a>联系我们</a>
+      <a>建议反馈</a>
+      <a>加入我们</a>
+    </td>
+  </tr>
+</table>
 
 </div>

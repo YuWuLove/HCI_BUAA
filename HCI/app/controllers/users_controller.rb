@@ -24,6 +24,9 @@ class UsersController < ApplicationController
     render :layout => false 
   end
 
+  def explore
+
+  end
 
   def homepage
     @pattern = /users\/(.*)\/homepage/
@@ -38,9 +41,6 @@ class UsersController < ApplicationController
   end
 
   def find
-    if(session[:user_id]==nil)
-      redirect_to "http://jd.com"
-end
     @users = User.find(:all, :conditions => ['name like ?', params[:search_string]])
   end
 

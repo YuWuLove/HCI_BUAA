@@ -3,7 +3,6 @@
 <script type="text/javascript" charset="utf-8">
   function click2()
   {
-      alert("ee")
       document.getElementById("screen").hidden = "";
       onresize = tv.resize;
       tv.init();
@@ -27,7 +26,6 @@
 
 
 
-<div>
 
 
 
@@ -51,15 +49,21 @@
 
 
 <p>
-  <b>Name:</b>
+  <b>相册名:</b>
   <%= @album.name %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b>相册描述:</b>
   <%= @album.description %>
 </p>
 
+<% @photos.each do |p| %>
+    <div style="float:left; margin: 10px">
+      <a href="<%="http://localhost:3000/weibos/"+ p.id.to_s %>">
+        <image src="<%= p.avatar.url %>" style="width:200px;height: 200px;"></image>
+      </a>
+      <p style="margin-left: 150px">赞:123</p>
+    </div>
 
-<%= link_to 'Edit', edit_album_path(@album) %> |
-<%= link_to 'Back', albums_path %>
+<% end %>

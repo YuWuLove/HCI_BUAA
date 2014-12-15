@@ -1,5 +1,5 @@
 <% for user in @friend %>
-    <div class="panel panel-success" style="width: 60%">
+    <div class="panel panel-primary" style="width: 60%">
       <div class="panel-heading">
         <h3 class="panel-title">
           <a href=<%="http://localhost:3000/users/" + user.id.to_s() +"/homepage" %> ><%= user.name %>
@@ -7,7 +7,7 @@
         </h3>
       </div>
       <div class="panel-body">
-        <image src="/images/3.jpg" style="width:120px;height: 120px; float:left"></image>
+        <image src="<%= user.user_profile.avatar.url %>" style="width:120px;height: 120px; float:left"></image>
         <div style="padding-left: 200px">
           <div>
             <span>所在地：<%= user.user_profile.location %></span> <br>

@@ -11,14 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141210024243) do
+ActiveRecord::Schema.define(:version => 20141214122540) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
     t.string   "description"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "tag"
+  end
+
+  create_table "collections", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "weibo_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "coments", :force => true do |t|
@@ -53,6 +65,9 @@ ActiveRecord::Schema.define(:version => 20141210024243) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "perference"
+    t.string   "qianming"
+    t.string   "status"
   end
 
   create_table "users", :force => true do |t|
@@ -66,8 +81,13 @@ ActiveRecord::Schema.define(:version => 20141210024243) do
   create_table "weibos", :force => true do |t|
     t.integer  "user_id"
     t.string   "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.integer  "album_id"
   end
 
 end

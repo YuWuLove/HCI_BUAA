@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails HCI: development" uuid="3b1bc785-27bc-41df-84a9-dcf55f28fb1d">
+      <secret-storage>memory</secret-storage>
+    </data-source>
+    <data-source name="Rails HCI: test" uuid="7f113714-6d95-4fc4-9625-245223bd3008">
+      <secret-storage>memory</secret-storage>
+    </data-source>
+  </component>
+</project>

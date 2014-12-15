@@ -9,11 +9,19 @@ class AlbumsController < ApplicationController
     end
   end
 
+
+  def find
+    @weibos = Album.find(:all, :conditions => ['tag like ?', params[:tag]])
+  end
+
+  def find2
+    @weibos = Album.find(:all, :conditions => ['name like ?', params[:tag]])
+  end
   # GET /albums/1
   # GET /albums/1.json
   def show
     @album = Album.find(params[:id])
-
+    @photos = Weibo.find_all_by_album_id(@album.id)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @album }

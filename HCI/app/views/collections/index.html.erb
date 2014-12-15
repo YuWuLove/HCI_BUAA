@@ -1,0 +1,17 @@
+<h1>我收藏的照片</h1>
+
+
+<% @collections.each do |collection| %>
+    <table style="float: left">
+  <tr>
+    <td>  <% @weibo = Weibo.find(collection.weibo_id);    %>
+      <image src="<%= @weibo.avatar.url %>" style="float: left;margin :10px;width:200px;height: 200px"></image></td>
+  </tr>
+      <tr>
+        <td><%= link_to '删除', collection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    </table>
+
+<% end %>
+
+<br />

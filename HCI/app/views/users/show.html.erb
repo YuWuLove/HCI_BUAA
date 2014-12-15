@@ -19,70 +19,130 @@
 </script>
 
 
-<div style="float: left; width: 20%; border-right:2px solid gray;">
-  <p>
-    你好, <%= @user.name %>
-  </p>
+<div style="float: left; width: 15%; border-right:2px solid gray;">
   <ul class="nav nav-pills nav-stacked">
-    <li role="presentation"><%= link_to 'Po照片' ,request.url+'/weibos/new' %></a></li>
-    <li role="presentation"><%= link_to '我的相册' ,request.url+'/albums' %></li>
-    <li role="presentation"><a href="#">为我推荐的照片</a></li>
+    <li role="presentation"><a href="<%= request.url + "/weibos/new" %>"><span class="glyphicon glyphicon-camera"></span>上传照片</a></li>
+    <li role="presentation"><a href="<%= request.url + "/albums/" %>"><span class="glyphicon glyphicon-briefcase"></span>我的收藏</a></li>
+    <li role="presentation"><a href="<%= request.url + "/albums/" %>"><span class="glyphicon glyphicon-picture"></span>我的相册</a></li>
+    <li role="presentation"><a href="<%= request.url + "/explore" %>"><span class="glyphicon glyphicon-eye-open"></span>推荐的人</a></li>
   </ul>
 </div>
 
-<div style="margin-left:25%;">
+<div style="margin-left:20%;">
 
-  <div style="border-bottom: 3px solid gray">
+  <div>
 
 
     <div>
-      <image src="/images/2.jpg" style="width:40px;height: 40px; float:left"></image>
-
-      <p style="color: grey;  padding-left: 50px">
-        小明，小刚，赞了照片,两小时前
-      </p>
+      <image src="/images/2.jpg" class="img-circle" style="width:40px;height: 40px; float:left;"></image>
     </div>
 
-    <div style="padding-top: 20px;">
-      <div style="width: 50px; float: left">
-        <button type="button" class="btn btn-default" onclick="thumbup(span_1)" style="float:left"><span class="glyphicon glyphicon-thumbs-up"></span></button>
-        <span id="span_1">308</span>
-        <button type="button" class="btn btn-default" onclick="thumbdown(span_1)" style="float:left"><span class="glyphicon glyphicon-thumbs-down"></span></button>
-      </div>
+    <div style=" margin-left: 70px;">
       <div style="float: left border-bottom: 3px solid gray;padding-bottom: 30px">
-        <image src="/images/avator.png" style="width:400px;height:300px;"></image>
-      </div>
-      <% coment = Coment.new %>
-      <%= form_for(coment) do |f| %>
-          <% if coment.errors.any? %>
-              <div id="error_explanation">
-                <h2><%= pluralize(coment.errors.count, "error") %> prohibited this coment from being saved:</h2>
+        <p><a href="#">李京</a>发布了照片。。。日日日</p>
+        <image src="/images/The-Dunloe.jpg" style="width:600px;height:400px;"></image>
+        <div class="panel panel-default" style="width: 600px; margin-left: 0px" >
+          <div class="panel-heading"><button class="btn btn-default">
+            <span class="glyphicon glyphicon-heart-empty"></span>
+          </button>
+            <button class="btn btn-default">
+              <span class="glyphicon glyphicon-briefcase"></span>
+            </button>
 
-                <ul>
-                  <% coment.errors.full_messages.each do |msg| %>
-                      <li><%= msg %></li>
-                  <% end %>
-                </ul>
+          <span style="margin-left: 30px"> 小明，小刚，等260人赞了照片,两小时前</span>
+          </div>
+          <div class="panel-body">dsaf
+          </div>
+          <% coment = Coment.new %>
+          <%= form_for(coment) do |f| %>
+              <% if coment.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(coment.errors.count, "error") %> prohibited this coment from being saved:</h2>
+
+                    <ul>
+                      <% coment.errors.full_messages.each do |msg| %>
+                          <li><%= msg %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+              <% end %>
+
+              <div class="field">
+                <%= f.hidden_field :weibo_id %><br />
+              </div>
+              <div class="field">
+                <%= f.hidden_field :user_id,:value=> session[:user_id] %><br />
+              </div>
+              <div class="field">
+                <%= f.text_area :content ,:class => 'form-control', :style=> 'width:600px; height: 80px'%>
+              </div>
+              <div class="actions">
+                <%= f.submit  :class =>'btn btn-default' ,:value =>'评论', :style => 'float:right'%>
               </div>
           <% end %>
+        </div>
+      </div>
 
-          <div class="field">
-            <%= f.hidden_field :weibo_id %><br />
-          </div>
-          <div class="field">
-            <%= f.hidden_field :user_id %><br />
-          </div>
-          <div class="field">
-            <%= f.label :添加评论 %><br />
-            <%= f.text_area :content, :style=> 'width:600px; height: 80px'%>
-          </div>
-          <div class="actions">
-            <%= f.submit  %>
-          </div>
-      <% end %>
     </div>
 
   </div>
 
+
+  <div>
+
+
+    <div>
+      <image src="/images/2.jpg" class="img-circle" style="width:40px;height: 40px; float:left;"></image>
+    </div>
+
+    <div style=" margin-left: 70px;">
+      <div style="float: left border-bottom: 3px solid gray;padding-bottom: 30px">
+        <p>李京发布了照片。。。日日日</p>
+        <image src="/images/The-Dunloe.jpg" style="width:600px;height:400px;"></image>
+        <div class="panel panel-default" style="width: 600px; margin-left: 0px" >
+          <div class="panel-heading"><button class="btn btn-default">
+            <span class="glyphicon glyphicon-heart-empty"></span>
+          </button>
+            <button class="btn btn-default">
+              <span class="glyphicon glyphicon-briefcase"></span>
+            </button>
+
+            <span style="margin-left: 30px"> 小明，小刚，等260人赞了照片,两小时前</span>
+          </div>
+          <div class="panel-body">dsaf
+          </div>
+          <% coment = Coment.new %>
+          <%= form_for(coment) do |f| %>
+              <% if coment.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(coment.errors.count, "error") %> prohibited this coment from being saved:</h2>
+
+                    <ul>
+                      <% coment.errors.full_messages.each do |msg| %>
+                          <li><%= msg %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+              <% end %>
+
+              <div class="field">
+                <%= f.hidden_field :weibo_id %><br />
+              </div>
+              <div class="field">
+                <%= f.hidden_field :user_id,:value=> session[:user_id] %><br />
+              </div>
+              <div class="field">
+                <%= f.text_area :content ,:class => 'form-control', :style=> 'width:600px; height: 80px'%>
+              </div>
+              <div class="actions">
+                <%= f.submit  :class =>'btn btn-default' ,:value =>'评论', :style => 'float:right'%>
+              </div>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </div>
 
