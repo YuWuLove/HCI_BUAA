@@ -8,17 +8,49 @@
         <table style="width: 100%">
           <tr >
             <td style="vertical-align: top">
-
-                <%= link_to collection.name , collection ,:style => "font-size: large"%>
+                <%= link_to collection.name , "http://localhost:3000/collections/"+collection.id.to_s(),:style => "font-size: large"%>
             </td>
             <td  style="float: right">
-              <%= link_to '编辑', edit_collection_path(collection) %>
+              <%= link_to '编辑', "http://localhost:3000/collections/"+collection.id.to_s()+"/edit" %>
             </td>
           </tr>
-          <tr>
+          <% if collection.name !="体育瞬间" %>
             <tr style="height: 150px">
+              <td>
+                <span style="float: left">
+                  <image src="/images/collect/c1.jpg" style="height: 100px;width: auto; margin: 10px">    </image><br>
+                  <a href="" style="margin-left: 50px">夕阳的树林</a>
+                </span>
+                <span style="float: left">
+                  <image src="/images/collect/c2.jpg" style="height: 100px;width: auto; margin: 10px">    </image><br>
+                  <a href="" style="margin-left: 50px">光影的魅力</a>
+                </span>
+<span style="float: left">
+                  <image src="/images/collect/c3.jpg" style="height: 100px;width: auto; margin: 10px">    </image><br>
+                  <a href="" style="margin-left: 50px">城市掠影</a>
+                </span>
+              </td>
 
             </tr>
+              <%else%>
+              <tr style="height: 150px">
+                <td>
+                <span style="float: left">
+                  <image src="/images/collect/c4.jpeg" style="height: 100px;width: auto; margin: 10px">    </image><br>
+                  <a href="" style="margin-left: 50px">23号传奇</a>
+                </span>
+                <span style="float: left">
+                  <image src="/images/collect/c5.jpg" style="height: 100px;width: auto; margin: 10px">    </image><br>
+                  <a href="" style="margin-left: 50px">乔丹壁纸</a>
+                </span>
+<span style="float: left">
+                  <image src="/images/collect/c6.jpg" style="height: 100px;width: auto; margin: 10px">    </image><br>
+                  <a href="" style="margin-left: 50px">乔丹Logo</a>
+                </span>
+                </td>
+
+              </tr>
+              <% end %>
 <td>
   <%= link_to '查看全部' , collection %>
 </td>
@@ -46,4 +78,4 @@
 
 <br />
 
-<%= link_to '新建收藏夹', new_collection_path %>
+<%= link_to '新建收藏夹', "new"%>

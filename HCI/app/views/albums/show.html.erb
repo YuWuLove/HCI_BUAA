@@ -68,7 +68,10 @@
       <a href="<%="http://localhost:3000/weibos/"+ p.id.to_s %>">
         <image src="<%= p.avatar.url %>" style="width:200px;height: 200px;"></image>
       </a>
-      <p style="margin-left: 150px">赞:123</p>
+      <p>  <a href="<%= "http://localhost:3000/weibos/"+p.id.to_s()+"/edit" %>">编辑</a>
+        <a href="<%= "http://localhost:3000/weibos/"+p.id.to_s() %>" data-method="delete">删除</a>
+      <span style="margin-left: 80px">赞:123</span></p>
+
     </div>
 
 <% end %>

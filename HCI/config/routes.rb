@@ -3,7 +3,6 @@ HCI::Application.routes.draw do
   match "/albums/find" =>"albums#find"
   resources :collections
 
-
   resources :albums
 
 

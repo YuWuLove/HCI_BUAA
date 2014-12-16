@@ -12,8 +12,12 @@
   <% end %>
 
     <div class="field">
-      <%= f.label :收藏夹名 %><br />
+      <%= f.label :'收藏夹名' %><br />
       <%= f.text_field :name %>
+    </div>
+
+    <div class="hidden">
+      <%= f.hidden_field :user_id, :value => session[:user_id]  %>
     </div>
 
   <div class="actions">
