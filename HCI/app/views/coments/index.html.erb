@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Weibo</th>
+    <th>Weibo_id</th>
     <th>User</th>
     <th>Content</th>
     <th></th>
@@ -12,7 +12,7 @@
 
 <% @coments.each do |coment| %>
   <tr>
-    <td><%= coment.weibo %></td>
+    <td><%= coment.weibo_id %></td>
     <td><%= coment.user %></td>
     <td><%= coment.content %></td>
     <td><%= link_to 'Show', coment %></td>

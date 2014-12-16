@@ -31,6 +31,7 @@ class UsersController < ApplicationController
   def homepage
     @pattern = /users\/(.*)\/homepage/
     @match = @pattern.match(request.url)
+    @albums = Album.find_all_by_user_id(@match[1])
     @user = User.find( @match[1])
     @profile = @user.user_profile
     if(@profile == nil)
@@ -56,6 +57,10 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @friends = Friend.find_all_by_uid(params[:id])
+    @friends.each do |f|
+      @weibos =Weibo.find_all_by_user_id(User.find(f.fid))
+    end
 
     respond_to do |format|
       format.html # show.html.erb

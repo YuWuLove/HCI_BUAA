@@ -14,7 +14,7 @@
               <%= link_to '编辑', "http://localhost:3000/collections/"+collection.id.to_s()+"/edit" %>
             </td>
           </tr>
-          <% if collection.name !="体育瞬间" %>
+          <% if collection.name =="体育瞬间32412412" %>
             <tr style="height: 150px">
               <td>
                 <span style="float: left">
@@ -35,18 +35,13 @@
               <%else%>
               <tr style="height: 150px">
                 <td>
-                <span style="float: left">
-                  <image src="/images/collect/c4.jpeg" style="height: 100px;width: auto; margin: 10px">    </image><br>
-                  <a href="" style="margin-left: 50px">23号传奇</a>
+                  <% @elements = Element.find_all_by_collection_id(collection.id) %>
+                  <% @elements.each do |e| %>
+                       <span style="float: left">
+                  <image src="<%= Weibo.find(e.weibo_id).avatar.url %>" style="height: 100px;width: auto; margin: 10px">    </image><br>
+                  <a href="" style="margin-left: 50px"><%= Weibo.find(e.weibo_id).content%></a>
                 </span>
-                <span style="float: left">
-                  <image src="/images/collect/c5.jpg" style="height: 100px;width: auto; margin: 10px">    </image><br>
-                  <a href="" style="margin-left: 50px">乔丹壁纸</a>
-                </span>
-<span style="float: left">
-                  <image src="/images/collect/c6.jpg" style="height: 100px;width: auto; margin: 10px">    </image><br>
-                  <a href="" style="margin-left: 50px">乔丹Logo</a>
-                </span>
+                  <%end%>
                 </td>
 
               </tr>

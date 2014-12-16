@@ -41,44 +41,30 @@
       </div>
       <div class="panel-body">
         <table  width="100%">
-          <tr style="width: 50%">
-            <td><img src="/images/plant.jpg" alt="image with circle shape" class="img-circle"
-                     style="width: 80px; height: 80px; float: left; margin: 10px">
-              <div style="float: left; padding-left: 10px; padding-top: 10px">
-                <span style="font-size: large"> 植物 </span><br>
-                <span> 一位植物鉴赏家 </span><br>
-                <span> 照片数: 赞数:</span>
-              </div>
+          <% @albums.each_index do |i| %>
+          <% if i%2==0%>
+                  <tr style="width: 50%">
+                    <td><img src="<%= @albums[i].avatar.url %>" class="img-circle"
+                             style="width: 80px; height: 80px; float: left; margin: 10px">
+                      <div style="float: left; padding-left: 10px; padding-top: 10px">
+                        <span style="font-size: large"> <%= @albums[i].name %> </span><br>
+                        <span>  <%= @albums[i].description %> </span><br>
+                        <span> 照片数: 赞数:</span>
+                      </div>
+                    </td>
+                  </tr>
+              <%else%>
+                  <td><img src="<%= @albums[i].avatar.url %>" class="img-circle"
+                           style="width: 80px; height: 80px; float: left; margin: 10px">
+                    <div style="float: left; padding-left: 10px; padding-top: 10px">
+                      <span style="font-size: large"> <%= @albums[i].name %> </span><br>
+                      <span>  <%= @albums[i].description %> </span><br>
+                      <span> 照片数: 赞数:</span>
+                    </div>
+                  </td>
+              <%end %>
+          <% end %>
 
-
-            </td>
-            <td><img src="/images/college.jpg" alt="image with circle shape" class="img-circle"
-                     style="width: 80px; height: 80px; float: left; margin: 10px">
-              <div style="float: left; padding-left: 10px; padding-top: 10px">
-                <span style="font-size: large"> 大学 </span><br>
-                <span> 愿意收集眼中的美 </span><br>
-                <span> 照片数: 赞数:</span>
-              </div>
-            </td>
-          </tr>
-          <tr style="width: 50%">
-            <td><img src="/images/humor.jpg" alt="image with circle shape" class="img-circle"
-                     style="width: 80px; height: 80px; float: left; margin: 10px">
-              <div style="float: left; padding-left: 10px; padding-top: 10px">
-                <span style="font-size: large"> 幽默 </span><br>
-                <span> 我是个逗比 </span><br>
-                <span> 照片数: 赞数:</span>
-              </div>
-            </td>
-            <td><img src="/images/food.jpg" alt="image with circle shape" class="img-circle"
-                     style="width: 80px; height: 80px; float: left; margin: 10px">
-              <div style="float: left; padding-left: 10px; padding-top: 10px">
-                <span style="font-size: large"> 食物 </span><br>
-                <span> 吃货，就是这么任性 </span><br>
-                <span> 照片数: 赞数:</span>
-              </div>
-            </td>
-          </tr>
         </table>
       </div>
     </div>

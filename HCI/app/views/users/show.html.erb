@@ -10,11 +10,39 @@
     }
         function thumbup(span_2)
         {
-            span_2.innerHTML =parseInt(span_2.innerHTML)+1;            
+            s3 = document.getElementById(span_2);
+            s3.innerHTML =parseInt(s3.innerHTML.trim())+1;
         }
-        function thumbdown(span_2)
+
+
+        function collect(w_id)
         {
-            span_2.innerHTML =parseInt(span_2.innerHTML)-1;
+            var temp = document.createElement("form");
+            temp.action = "/elements";
+            temp.method = "post";
+            temp.style.display = "none";
+
+            var opt = document.createElement("textarea");
+            opt.name = "element[user_id]";
+            opt.value = <%= session[:user_id] %>;
+            // alert(opt.name)
+            temp.appendChild(opt);
+
+            var opt = document.createElement("textarea");
+            opt.name = "element[collection_id]";
+            opt.value = <%= Collection.find_by_user_id(session[:user_id]).id %>;
+            // alert(opt.name)
+            temp.appendChild(opt);
+
+            var opt = document.createElement("textarea");
+            opt.name = "element[weibo_id]";
+            opt.value = w_id;
+            // alert(opt.name)
+            temp.appendChild(opt);
+
+
+            document.body.appendChild(temp);
+            temp.submit();
         }
 </script>
 
@@ -28,121 +56,77 @@
   </ul>
 </div>
 
-<div style="margin-left:20%;">
-
-  <div>
-
-
-    <div>
-      <image src="/images/2.jpg" class="img-circle" style="width:40px;height: 40px; float:left;"></image>
-    </div>
-
-    <div style=" margin-left: 70px;">
-      <div style="float: left border-bottom: 3px solid gray;padding-bottom: 30px">
-        <p><a href="#">李京</a>发布了照片。。。日日日</p>
-        <image src="/images/The-Dunloe.jpg" style="width:600px;height:400px;"></image>
-        <div class="panel panel-default" style="width: 600px; margin-left: 0px" >
-          <div class="panel-heading"><button class="btn btn-default">
-            <span class="glyphicon glyphicon-heart-empty"></span>
-          </button>
-            <button class="btn btn-default">
-              <span class="glyphicon glyphicon-briefcase"></span>
-            </button>
-
-          <span style="margin-left: 30px"> 小明，小刚，等260人赞了照片,两小时前</span>
-          </div>
-          <div class="panel-body">dsaf
-          </div>
-          <% coment = Coment.new %>
-          <%= form_for(coment) do |f| %>
-              <% if coment.errors.any? %>
-                  <div id="error_explanation">
-                    <h2><%= pluralize(coment.errors.count, "error") %> prohibited this coment from being saved:</h2>
-
-                    <ul>
-                      <% coment.errors.full_messages.each do |msg| %>
-                          <li><%= msg %></li>
-                      <% end %>
-                    </ul>
-                  </div>
-              <% end %>
-
-              <div class="field">
-                <%= f.hidden_field :weibo_id %><br />
-              </div>
-              <div class="field">
-                <%= f.hidden_field :user_id,:value=> session[:user_id] %><br />
-              </div>
-              <div class="field">
-                <%= f.text_area :content ,:class => 'form-control', :style=> 'width:600px; height: 80px'%>
-              </div>
-              <div class="actions">
-                <%= f.submit  :class =>'btn btn-default' ,:value =>'评论', :style => 'float:right'%>
-              </div>
-          <% end %>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div>
-
-
-    <div>
-      <image src="/images/2.jpg" class="img-circle" style="width:40px;height: 40px; float:left;"></image>
-    </div>
-
-    <div style=" margin-left: 70px;">
-      <div style="float: left border-bottom: 3px solid gray;padding-bottom: 30px">
-        <p>李京发布了照片。。。日日日</p>
-        <image src="/images/The-Dunloe.jpg" style="width:600px;height:400px;"></image>
-        <div class="panel panel-default" style="width: 600px; margin-left: 0px" >
-          <div class="panel-heading"><button class="btn btn-default">
-            <span class="glyphicon glyphicon-heart-empty"></span>
-          </button>
-            <button class="btn btn-default">
-              <span class="glyphicon glyphicon-briefcase"></span>
-            </button>
-
-            <span style="margin-left: 30px"> 小明，小刚，等260人赞了照片,两小时前</span>
-          </div>
-          <div class="panel-body">dsaf
-          </div>
-          <% coment = Coment.new %>
-          <%= form_for(coment) do |f| %>
-              <% if coment.errors.any? %>
-                  <div id="error_explanation">
-                    <h2><%= pluralize(coment.errors.count, "error") %> prohibited this coment from being saved:</h2>
-
-                    <ul>
-                      <% coment.errors.full_messages.each do |msg| %>
-                          <li><%= msg %></li>
-                      <% end %>
-                    </ul>
-                  </div>
-              <% end %>
-
-              <div class="field">
-                <%= f.hidden_field :weibo_id %><br />
-              </div>
-              <div class="field">
-                <%= f.hidden_field :user_id,:value=> session[:user_id] %><br />
-              </div>
-              <div class="field">
-                <%= f.text_area :content ,:class => 'form-control', :style=> 'width:600px; height: 80px'%>
-              </div>
-              <div class="actions">
-                <%= f.submit  :class =>'btn btn-default' ,:value =>'评论', :style => 'float:right'%>
-              </div>
-          <% end %>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
+<div id="c" style="display: none;" >
+  sdfsadf
 </div>
+
+<div style="margin-left:20%;">
+<% if @weibos!=nil %>
+      <% @weibos.each do |w| %>
+
+          <div>
+            <image src="<%= UserProfile.find_by_user_id(w.user_id).avatar.url %>" class="img-circle" style="width:40px;height: 40px; float:left;"></image>
+          </div>
+          <div style=" margin-left: 70px;">
+
+            <div style="float: left border-bottom: 3px solid gray;padding-bottom: 30px">
+              <p><a href="#"><%= User.find(w.user_id).name %></a><%= w.content %></p>
+              <image src="<%= w.avatar.url %>" style="width:600px;height:400px;"></image>
+              <div class="panel panel-default" style="width: 600px; margin-left: 0px" >
+                <div class="panel-heading"><button class="btn btn-default" onclick="thumbup(<%=w.id %>)">
+                  <span  class="glyphicon glyphicon-heart-empty"></span>
+                </button>
+                  <button class="btn btn-default" onclick="collect(<%=w.id %>)">
+                    <span class="glyphicon glyphicon-briefcase"></span>
+                  </button>
+
+                  <span style="margin-left: 30px"> 小明，小刚，等
+                    <span id = "<%= w.id %>" >260</span>人赞了照片,两小时前</span>
+                </div>
+                <div class="panel-body">
+                  <% @comments = Coment.find_all_by_weibo_id(w.id) %>
+                  <% @comments.each do |c| %>
+                  <p>
+                    <a href=""><%=User.find(c.user_id ).name %></a>：
+                    <%= c.content %>
+                  </p>
+                  <% end %>
+                </div>
+                <% coment = Coment.new %>
+                <%= form_for(coment) do |f| %>
+                    <% if coment.errors.any? %>
+                        <div id="error_explanation">
+                          <h2><%= pluralize(coment.errors.count, "error") %> prohibited this coment from being saved:</h2>
+
+                          <ul>
+                            <% coment.errors.full_messages.each do |msg| %>
+                                <li><%= msg %></li>
+                            <% end %>
+                          </ul>
+                        </div>
+                    <% end %>
+
+                    <div class="field">
+                      <%= f.hidden_field :weibo_id, :value=> w.id %><br />
+                    </div>
+                    <div class="field">
+                      <%= f.hidden_field :user_id,:value=> session[:user_id] %><br />
+                    </div>
+                    <div class="field">
+                      <%= f.text_area :content ,:class => 'form-control', :style=> 'width:600px; height: 80px'%>
+                    </div>
+                    <div class="actions">
+                      <%= f.submit  :class =>'btn btn-default' ,:value =>'评论', :style => 'float:right'%>
+                    </div>
+                <% end %>
+              </div>
+            </div>
+
+          </div>
+
+      <% end%>
+
+      </div>
+      <% end %>
+
 

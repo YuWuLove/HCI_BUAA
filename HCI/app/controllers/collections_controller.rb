@@ -5,7 +5,6 @@ class CollectionsController < ApplicationController
 
     @user = params[:user_id]
     @collections = Collection.find_all_by_user_id(@user)
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @collections }

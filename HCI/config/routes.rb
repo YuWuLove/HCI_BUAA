@@ -1,5 +1,8 @@
 HCI::Application.routes.draw do
 
+  resources :elements
+
+
   match "/albums/find" =>"albums#find"
   resources :collections
 
