@@ -25,16 +25,25 @@
     <%= f.label :图片描述 %><br />
     <%= f.text_field :content %>
   </div>
-    <%= f.label :所属相册 %><br />
-<select name="weibo[album_id]">
-  <%
-     @albums = Album.find_all_by_user_id(session[:user_id])
-  %>
-  <%=  @albums.each do |a| %>
-  <option value="<%= a.id %>"><%= a.name %></option>
-  <% end %>
-</select>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+    <% if @select_album == nil %>
+        <%= f.label :所属相册 %><br />
+        <select name="weibo[album_id]">
+          <%
+             @albums = Album.find_all_by_user_id(session[:user_id])
+          %>
+          <%=  @albums.each do |a| %>
+              <option value="<%= a.id %>"><%= a.name %></option>
+          <% end %>
+        </select>
+
+
+
+    <% else    %>
+        <%= f.hidden_field :album_id, :value => @select_album  %>
+        <% end %>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>

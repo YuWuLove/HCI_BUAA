@@ -1,17 +1,49 @@
-<h1>我收藏的照片</h1>
+<h1>我的收藏夹</h1>
 
 
 <% @collections.each do |collection| %>
-    <table style="float: left">
-  <tr>
-    <td>  <% @weibo = Weibo.find(collection.weibo_id);    %>
-      <image src="<%= @weibo.avatar.url %>" style="float: left;margin :10px;width:200px;height: 200px"></image></td>
-  </tr>
-      <tr>
-        <td><%= link_to '删除', collection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    </table>
+    <div class="panel panel-success" style="width: 60%">
+
+      <div class="panel-body">
+        <table style="width: 100%">
+          <tr >
+            <td style="vertical-align: top">
+
+                <%= link_to collection.name , collection ,:style => "font-size: large"%>
+            </td>
+            <td  style="float: right">
+              <%= link_to '编辑', edit_collection_path(collection) %>
+            </td>
+          </tr>
+          <tr>
+            <tr style="height: 150px">
+
+            </tr>
+<td>
+  <%= link_to '查看全部' , collection %>
+</td>
+            <td style="float: right">
+              <button  type="button" class="btn btn-default" >
+                加关注
+              </button>
+            </td>
+          </tr>
+        </table>
+        <div style="padding-left: 20px">
+
+          <div>
+
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
 
 <% end %>
 
 <br />
+
+<%= link_to '新建收藏夹', new_collection_path %>

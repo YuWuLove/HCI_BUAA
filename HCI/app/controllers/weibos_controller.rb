@@ -26,6 +26,7 @@ class WeibosController < ApplicationController
   def new
     @weibo = Weibo.new
     @albums = Album.find_all_by_user_id(session[:user_id])
+    @select_album = params[:album]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @weibo }

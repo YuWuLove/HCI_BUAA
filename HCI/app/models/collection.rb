@@ -1,3 +1,3 @@
 class Collection < ActiveRecord::Base
-  attr_accessible :weibo_id, :user_id
+  attr_accessible :weibo_id, :user_id, :name
 end

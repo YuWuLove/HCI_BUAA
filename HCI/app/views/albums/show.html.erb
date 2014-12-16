@@ -1,16 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <script type="text/javascript" charset="utf-8">
-  function click2()
-  {
+  function click2() {
       document.getElementById("screen").hidden = "";
       onresize = tv.resize;
       tv.init();
   }
+        function nav()
+        {
+            window.location.href=("/weibos/new?album=1");
+        }
 </script>
 
 <div class="btn-group" style="float: right">
-  <button type="button" class="btn btn-primary">浏览方式</button>
+ <button type="button" class="btn btn-primary" onclick="nav()">上传图片</button>
+
+  <button type="button" class="btn btn-primary" style="margin-left: 10px">浏览方式</button>
   <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
     <span class="caret"></span>
     <span class="sr-only">Toggle Dropdown</span>
